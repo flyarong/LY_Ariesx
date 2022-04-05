@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="49dp"
+    android:visibility="visible"
+    android:id="@+id/rl_listen_voice_layout_bottom"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_vertical">
+
+    <EditText
+        android:id="@+id/ilong_ac_send_message_et"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:background="@drawable/input_msg_background"
+        android:gravity="center_vertical"
+        android:hint="@string/tv_linevoice_input_hint"
+        android:maxLength="300"
+        android:paddingLeft="10dp"
+        android:textColor="@color/listen_voice_input_real_text"
+        android:textColorHint="@color/listen_voice_input_text"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="15dp"
+        android:visibility="gone"
+        android:src="@drawable/ilong_chat_input_emoticon" />
+
+    <RelativeLayout
+        android:id="@+id/rl_listen_voice_send"
+        android:layout_width="60dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_listen_voice_send_gift"
+            android:layout_width="50dp"
+            android:layout_centerVertical="true"
+            android:layout_height="30dp">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/liveroom_love"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <TextView
+                android:id="@+id/tv_listen_voice_send_gift_num"
+                android:layout_width="28dp"
+                android:layout_height="wrap_content"
+                android:textSize="9sp"
+                android:textColor="@color/listen_voice_input_heart_num"
+                android:gravity="bottom"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:text=""
+                />
+
+        </RelativeLayout>
+
+        <com.lyvoice.widget.StrokeTextViewBtn
+            android:id="@+id/tv_listen_voice_send_text_btn"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/collect_btn"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/tv_linevoice_input_btn"
+            android:textColor="@color/tab_title"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

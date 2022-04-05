@@ -1,0 +1,635 @@
+syntax = "proto2";
+package protocol;
+
+import "types.proto";
+import "struct.proto";
+
+message HeartbeatReq {}
+
+message ReconnectReq {
+	required string Udid    = 1;
+	required string WorldId = 2;
+	required int32  Counter = 3;
+}
+
+message ConnectReq {
+	required string WorldId    = 1;
+	required string LoginToken = 2;
+
+	required int32  Platform      = 10; // 平台号, 1.android 2.ios 3.winphone 4.web
+	required string DeviceId      = 11; // 设备号 android IMEI，IOS idfa，为了统 一和兼容，请使用龙渊数据采集 SDK 包中 的方法
+	required string ChannelId     = 12; // 渠道 ID,游戏渠道 ly,uc,360,vivo,huawei
+	required string PackageId     = 13; // 渠道包 ID ,lyjlzz0001
+	required string SdkVersion    = 14; // sdk 版本 ID
+	required string ClientVersion = 15; // 应用包版本
+	required string Language      = 16; // 语言，en | zh-CN | zh-TW
+	required string ChannelUserId = 17; // 渠道用户 ID
+
+	optional string IP = 30;
+}
+
+// 登录
+message LoginReq {
+	optional int32 MapSN = 1; // 登录选州
+}
+
+// 订阅地块
+message FeedBlocksReq {
+	repeated string Offsets = 1; // 订阅的地块 offset
+}
+
+// 行军请求
+message MarchReq {
+	required string TroopId   = 1; // 部队 ID
+	required int32  MarchType = 2; // 行军类型
+	required Coord  Target    = 3; // 目标坐标
+}
+
+// 放弃地块
+message AbandonPointReq {
+	required Coord Coord = 1; // 坐标
+}
+
+// 获取玩家所有英雄
+message GetHeroesReq {
+}
+
+// 标记新英雄为已读
+message ReadHeroReq {
+	required string Name = 1; // 英雄唯一标示符
+}
+
+// 为英雄征兵
+message RecruitMaxReq {
+	required string TroopId = 1; // 部队 ID
+	required string Name    = 2; // 英雄唯一标示符
+}
+
+// 为部队中所有英雄征兵
+message RecruitAllReq {
+	required string TroopId = 1; // 部队 ID
+}
+
+// 获取玩家拥有的所有地块
+message PlayerPointsReq {
+}
+
+// 编辑部队整形
+message EditTroopReq {
+	required string       TroopId       = 1; // 部队 ID
+	repeated HeroPosition HeroPositions = 2; // 英雄所在的位置编号
+}
+
+// 记录新手引导步骤
+message AddFteStepsReq {
+	required string Key = 1; // 新手引导 key
+}
+
+// 建造建筑
+message BuildReq {
+	required string Name  = 1; // 建筑唯一标示符
+	required Coord  Coord = 2; // 坐标
+}
+
+// 升级建筑
+message UpgradeReq {
+	required string Name = 1; // 建筑唯一标示符
+}
+
+// 取消行军
+message CancelMarchReq {
+	required string Id = 1; // 行军事件 ID
+}
+
+// 召回部队（以大本营为目标的移动类型事件）
+message CallbackTroopReq {
+	required string Id = 1; // 部队 ID
+}
+
+// 取消建造事件
+message CancelBuildReq {
+	required string Id = 1; // 建造事件 ID
+}
+
+// 抽奖
+message LotteryReq {
+	required string GroupName = 1; // 抽奖礼包唯一标示符
+}
+
+// 获取战报列表（分页）
+message GetBattleReportsReq {
+	required int32 Page = 1; // 页数，从 1 开始
+}
+
+// 获取战报详细详情
+message GetBattleReportReq {
+	required string Id = 1; // 战报 ID
+}
+
+// 获取登录后所需的其他信息
+message NotifiesReq {
+}
+
+// 发送私信
+message SendPersonalMessageReq {
+	required string To      = 1; // 目标玩家名称
+	required string Content = 2; // 私信内容
+}
+
+// 标记战报为已读（可多选）
+message MarkBattleReportReadReq {
+	repeated string Ids = 1; // 战报 ID 列表
+}
+
+// 获取系统邮件列表（分页）
+message GetSystemMessagesReq {
+	required int32 Page = 1; // 页数，从 1 开始
+}
+
+// 打开系统邮件附件
+message OpenAttachmentReq {
+	required string Id = 1; // 页数，从 1 开始
+}
+
+// 标记系统邮件为已读（可多选）
+message MarkSystemMessageReadReq {
+	repeated string Id = 1; // 系统邮件 ID 列表
+}
+
+// 获取私信
+message GetPersonalMessagesReq {
+}
+
+// 获取私信详情
+message GetPersonalMessageReq {
+	required string Id = 1; // 私信 ID
+}
+
+// 标记私信为已读（可多选）
+message MarkPersonalMessagesReadReq {
+	repeated string Id = 1; // 私信 ID 列表
+}
+
+// 获取世界聊天信息
+message GetWorldChatReq {
+}
+
+// 发送世界聊天消息
+message WorldChatReq {
+	required string Content = 1; // 聊天内容
+}
+
+// 获取州内聊天信息
+message GetStateChatReq {
+}
+
+// 发送州内聊天消息
+message StateChatReq {
+	required string Content = 1; // 聊天内容
+}
+
+// 获取贡品奖励
+message GetTributeReq {
+}
+
+// 获取可用的日常任务列表
+message GetTasksReq {
+}
+
+// 获取可用的日常任务列表
+message GetTaskDailyReq {
+}
+
+// 获取日常任务奖励
+message GetTaskRewardReq {
+	required int32 Id = 1; // 任务 ID
+}
+
+// 获取日常任务活力值奖励
+message GetVitalityRewardReq {
+	required int32 Id = 1; // 活力值奖励唯一标示符
+}
+
+// 获取章节任务列表
+message GetChapterTasksReq {
+}
+
+// 获取章节任务子任务奖励
+message GetChapterTaskRewardReq {
+	required int32 Id = 1; // 子任务 ID
+}
+
+// 获取章节任务章节总奖励
+message GetChapterRewardReq {
+	required int32 Id = 1; // 章节任务 ID
+}
+
+// 升级英雄
+message LevelUpReq {
+	required string Name = 1; // 英雄唯一标示符
+}
+
+// 获取藏宝图奖励
+message GetTreasureMapRewardReq {
+}
+
+// 取消征兵事件
+message CancelRecruitReq {
+	required string Id = 1; // 征兵事件 ID
+}
+
+// 获取个人排行榜信息（分页）
+message RankReq {
+	required int32 Page = 1; // 页数，从 1 开始
+}
+
+// 获取联盟排行榜信息（分页）
+message AllianceRankReq {
+	required int32 Page = 1; // 页数，从 1 开始
+}
+
+// 获取活动『洲际纷争』排行榜
+message GetCaptureRankReq {
+}
+
+// 获取活动『洲际纷争』个人积分信息
+message GetCapturePersonalPointsReq {
+	required CapturePersonalPoints CapturePersonalPoints = 1;
+}
+
+// 获取活动『恶魔乱斗』排行榜（分页）
+message GetMeleeRankReq {
+	required int32 Page = 1; // 页数，从 1 开始
+}
+
+// 获取活动『占地为王』排行榜
+message GetOccupyRankReq {
+}
+
+// 获取活动『占地为王』个人排名信息
+message GetOccupySelfRankReq {
+}
+
+// 获取活动『恶魔乱斗』个人积分信息
+message GetMonsterPointsReq {
+}
+
+// 添加地块标记
+message AddMarkReq {
+	required Coord  Coord = 1; // 坐标
+	required string Name  = 2; // 自定义名称
+}
+
+// 删除地块标记
+message DelMarkReq {
+	required Coord  Coord = 1; // 坐标
+}
+
+// 创建联盟
+message CreateAllianceReq {
+	required string Name       = 1;  // 联盟名称
+	required string Desc       = 2;  // 联盟描述
+	required int32  Emblem     = 3;  // 联盟旗帜
+	required int32  Language   = 4;  // 联盟语言
+	required int32  JoinType   = 10; // 联盟加入条件
+	required int32  ForceLimit = 11; // 联盟最小实力值限制
+}
+
+// 修改联盟设置
+message SetAllianceReq {
+	required string Desc       = 1; // 联盟描述
+	required int32  Emblem     = 2; // 联盟旗帜
+	required int32  JoinType   = 3; // 联盟加入条件
+	required int32  Language   = 4; // 联盟语言
+	required int32  ForceLimit = 5; // 联盟最小实力值限制
+}
+
+// 获取联盟列表（分页）
+message GetAlliancesReq {
+	required int32 Page = 1; // 页数，从 1 开始
+}
+
+// 搜索联盟
+message SearchAllianceReq {
+	required string Name = 1; // 联盟名称
+}
+
+// 获取联盟信息
+message GetAllianceReq {
+	required string Id = 1; // 联盟 ID
+}
+
+// 获取联盟成员信息（分页）
+message GetAllianceMembersReq {
+	required string Id      = 1; // 联盟 ID
+	required int32  Page    = 2; // 页数，从 1 开始
+	required string OrderBy = 3; // 排序类型
+}
+
+// 加入联盟
+message JoinAllianceReq {
+	required string Id      = 1; // 联盟 ID
+	required string Message = 2; // 申请消息
+}
+
+// 获取自己联盟信息
+message GetMyAllianceReq {
+}
+
+// 获取玩家公共信息
+message GetPlayerPublicInfoReq {
+	required string Id = 1; // 玩家 ID
+}
+
+// 提升联盟职位
+message PromoteReq {
+	required string Id   = 1; // 玩家 ID
+	required int32  Role = 2; // 目标职位标示
+}
+
+// 踢出联盟成员
+message KickMemberReq {
+	required string Id = 1; // 玩家 ID
+}
+
+// 退出联盟
+message QuitAllianceReq {
+}
+
+// 解散联盟
+message DissolveAllianceReq {
+}
+
+// 获取联盟聊天消息
+message GetAllianceMessagesReq {
+}
+
+// 发送联盟聊天消息
+message AllianceChatReq {
+	required string Content = 1; // 消息内容
+}
+
+// 批准入盟请求
+message ApprovalJoinReq {
+	required string Id = 1; // 请求 ID
+}
+
+// 拒绝入盟请求
+message RefuseJoinReq {
+	required string Id = 1; // 请求 ID
+}
+
+// 群发联盟消息
+message SendAllianceMessageReq {
+	required string Content = 1; // 消息内容
+}
+
+// 上缴资源以恢复『自由人』身份
+message PayLiberationReq {
+	required int32 Food   = 1; // 食物数量
+	required int32 Lumber = 2; // 木材数量
+	required int32 Marble = 3; // 石料数量
+	required int32 Steel  = 4; // 钢材数量
+}
+
+// 获取恢复『自由人』身份需要上缴的资源数量
+message GetLiberationCostReq {
+}
+
+// 获取联盟沦陷的城市列表
+message GetAllianceFallenTargetsReq {
+}
+
+// 获取联盟沦陷的玩家列表（分页）
+message GetAllianceFallenPlayersReq {
+	required int32 Page = 1; // 页数，从 1 开始
+}
+
+// 添加联盟地块标记
+message AddAllianceMarkReq {
+	required Coord  Coord = 1; // 坐标
+	required string Name  = 2; // 标记名称
+}
+
+// 删除联盟地块标记
+message DelAllianceMarkReq {
+	required Coord Coord = 1; // 坐标
+}
+
+// 获取地块中同盟部队（分页）
+message GetPointPlayerTroopsReq {
+	required Coord Coord = 1; // 地块坐标
+	required int32 Page  = 2; // 页数，从 1 开始
+}
+
+// 弃用
+message GetFallenInfoReq {
+	repeated Coord Coords = 1;
+}
+
+// 设置玩家签名
+message SetPlayerDescReq {
+	required string Desc = 1; // 签名内容
+}
+
+// 打开宝箱
+message OpenChestReq {
+	required string Name = 1; // 宝箱唯一表示
+}
+
+// 获取地块 NPC 守军信息
+message GetPointNpcTroopsReq {
+	required Coord Coord = 1; // 坐标
+}
+
+// 获取英雄信息
+message GetHeroesInfoReq {
+	// 英雄信息
+	message HeroInfo {
+		required string Name  = 1; // 英雄唯一标示符
+		required int32  Level = 2; // 英雄等级
+	}
+	repeated HeroInfo Infos = 1; // 英雄信息列表
+}
+
+// 放弃建筑
+message GiveUpBuildingReq {
+	required string Name = 1; // 建筑唯一表示
+}
+
+// 取消放弃建筑
+message CancelGiveUpBuildingReq {
+	required string Id = 1; // 放弃事件 ID
+}
+
+// 立刻返回部队至大本营
+message ReturnTroopImmediatelyReq {
+	required string TroopId = 1; // 部队 ID
+}
+
+// 获取客服 SDK token
+message GetCustomerServiceTokenReq {
+}
+
+// 寻找大本营附近符合目标的地块
+message GetRecentCoordByLevelReq {
+	required int32 Level = 1; // 地块等级
+	required int32 Type  = 2; // 地块类型
+}
+
+// 寻找大本营附近符合目标的地块
+message GetCanAddForceCoordReq {
+}
+
+// 获取大本营附近符合目标的恶魔
+message GetRecentMonsterByLevelReq {
+	required int32 Level = 1; // 恶魔等级
+}
+
+// 获取地块恶魔信息
+message GetMonsterByCoordReq {
+	required Coord Coord = 1; // 坐标
+}
+
+// 获取大乱斗的恶魔刷新时间
+message GetMonsterRefreshAtReq {
+	required int64 RefreshAt = 1; // 时间戳
+}
+
+// 修改玩家名称
+message ChangeNameReq {
+	required string NewName =1; // 新名称
+}
+
+// 获取实力值奖励
+message GetForceRewardReq {
+	required int32 Level = 1; // 奖励等级
+}
+
+// 获取实力值奖励状态
+message GetForceRewardStatusReq {
+}
+
+// 解锁额外建筑队列
+message PayExtraBuildQueueReq {
+}
+
+// 获取活动『占地为王』的联盟排行（分页）
+message AllianceOccupationRankReq {
+	required int32 Page = 1; // 页数，从 1 开始
+}
+
+// 设置最大的新手引导步骤
+message SetMaxFteStepReq {
+	required int32 Step = 1; // 步骤序号
+}
+
+// 获取商店信息
+message GetStoreInfoReq {
+}
+
+// 宝石兑换金币
+message GemExchangeGoldReq {
+    required string ProductId = 1; // 产品 ID
+}
+
+// 购买产品（内购）
+message BuyProductReq {
+    required string ProductId = 1; // 产品 ID
+    required int32  Channel   = 2; // 支付渠道标示符
+}
+
+// 获取月卡奖励
+message GetMonthCardRewardReq {
+    required string MonthCardId = 1;
+}
+
+// 尝试确认订单
+message OrderConfirmReq {
+}
+
+// 更新订单状态
+message OrderUpdateReq {
+    required string Payload = 1; // 订单消息
+    required string Token   = 2; // 订单 token
+}
+
+// 获取活动『占地为王』积分日志
+message OccupyLogsReq {
+	required int32 Page = 1;
+}
+
+message OccupyRanksReq {
+	required int32 Page = 1;
+}
+
+// 获取活动『魔影入侵』不可召唤的城市列表
+message DominationNotCallCityReq {
+    required string AllianceId = 1; // 联盟 ID
+}
+
+// 活动『魔影入侵』生成Boss请求
+message GenerateBossReq {
+    required Coord Coord = 1; // 坐标
+}
+
+// 获取活动『魔影入侵』排行榜信息
+message GetDominationRankReq {
+    required string DominationId = 1; // Boss ID
+}
+
+// 获取活动『魔影入侵』活动信息
+message DominationInfoReq {
+}
+
+// 获取活动『魔影入侵』召唤历史记录
+message DominationHistoryReq {
+    required int32  Page = 1; // 页数
+}
+
+// 获取地块Boss信息
+message GetDominationByCoordReq {
+	required Coord Coord = 1; // 坐标
+}
+
+// 获取活动『洲际纷争』积分日志
+message CaptureLogsReq {
+	required int32 Page = 1;
+}
+
+// 获取月卡时候获取的状态
+message IsMonthCardExpiredReq {
+}
+
+message ChangeAvatarReq {
+	required int32 Avatar = 1;
+}
+
+message GetBornPointsReq {
+}
+
+// 领取每日礼包
+message GetDailyShopReq {
+	required int32 Fetch    = 1;
+	required int32 Catagory = 2;
+}
+
+message ExchangeTroopHeroReq {
+	repeated Formation Formation = 1;
+}
+
+message GetDailyLimitExpired {}
+
+message GetAllyCoordsReq {}
+
+message GetAllAlliancePointsReq {}
+
+message GetDailyLimitExpiredReq {}
+
+// 充值奖励
+message RechargeRewardInfoReq {}
+
+// 获取充值奖励
+message GetRechargeRewardReq {
+	required int32 RewardId = 1;
+}

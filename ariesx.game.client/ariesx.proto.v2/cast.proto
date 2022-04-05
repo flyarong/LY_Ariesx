@@ -1,0 +1,316 @@
+syntax = "proto2";
+package protocol;
+
+import "types.proto";
+import "struct.proto";
+
+message ResortAllianceRanksCst {}
+message ResortPlayerRanksCst {}
+message ResortMonsterRanksCst {}
+message ProduceResourcesCst {}
+message NotifyChangesCst {}
+message FinishAbdicationEventsCst {}
+message FinishMarchEventsCst {}
+message FinishRecruitEventsCst {}
+message FinishBuildEventsCst {}
+message FinishAbandonEventsCst {}
+message FinishRevokeEventsCst {}
+message FinishDissolveEventsCst {}
+message CheckActivityCst {}
+
+message PlayerCst {
+	required string Pid   = 1;
+}
+
+message GetPlayerPublicInfoCst {
+	required string Pid      = 1;
+	required string TargetId = 2;
+}
+
+message GetFallenInfoCst {
+	required string Pid    = 1;
+	repeated Coord  Coords = 2;
+}
+
+message GetNpcTroopsCst {
+	required string Pid   = 1;
+	required Coord  Coord = 2;
+}
+
+message GetPlayerTroopsCst {
+	required string Pid   = 1;
+	required Coord  Coord = 2;
+	required int32  Page  = 3;
+}
+
+message FeedBlocksCst {
+	required string Pid     = 1;
+	repeated string Offsets = 2;
+}
+
+message MarchCst {
+	required string Pid       = 1;
+	required string TroopId   = 2;
+	required int32  MarchType = 3;
+	required Coord  Target    = 4;
+}
+
+message CancelMarchCst {
+	required string Pid = 1;
+	required string Id  = 2;
+}
+
+message CallbackTroopCst {
+	required string Pid = 1;
+	required string Id  = 2;
+}
+
+message AbandonPointCst {
+	required string Pid   = 1;
+	required Coord  Coord = 2;
+}
+
+message RecruitMaxCst {
+	required string Pid      = 1;
+	required string TroopId  = 2;
+	required string HeroName = 3;
+}
+
+message RecruitAllCst {
+	required string Pid     = 1;
+	required string TroopId = 2;
+}
+
+message CancelRecruitCst {
+	required string Pid     = 1;
+	required string EventId = 2;
+}
+
+message EditTroopCst {
+	required string       Pid           = 1;
+	required string       TroopId       = 2;
+	repeated HeroPosition HeroPositions = 3;
+}
+
+message CreateAllianceCst {
+	required string Pid        = 1;
+	required string Name       = 2;
+	required string Desc       = 3;
+	required int32  Emblem     = 4;
+	required int32  JoinType   = 10;
+	required int32  ForceLimit = 11;
+	required int32  Language   = 12;
+}
+
+message GetAllianceCst {
+	required string Pid        = 1;
+	required string AllianceId = 2;
+}
+
+message GetAllianceMembersCst {
+	required string Pid        = 1;
+	required string AllianceId = 2;
+	required int32  Page       = 3;
+	required string OrderBy    = 4;
+}
+
+message SearchAllianceCst {
+	required string Pid  = 1;
+	required string Name = 2;
+}
+
+message GetAlliancesCst {
+	required string Pid  = 1;
+	required int32  Page = 2;
+}
+
+message JoinAllianceCst {
+	required string Pid        = 1;
+	required string AllianceId = 2;
+	required string Message    = 3;
+}
+
+message RefuseJoinCst {
+	required string Pid         = 1;
+	required string RequesterId = 2;
+}
+
+message ApprovalJoinCst {
+	required string Pid         = 1;
+	required string RequesterId = 2;
+}
+
+message KickMemberCst {
+	required string Pid      = 1;
+	required string MemberId = 2;
+}
+
+message PromoteCst {
+	required string Pid      = 1;
+	required string MemberId = 2;
+	required int32  Role     = 3;
+}
+
+message SetAllianceCst {
+	required string Pid        = 1;
+	required string Desc       = 2;
+	required int32  Emblem     = 3;
+	required int32  JoinType   = 10;
+	required int32  ForceLimit = 11;
+	required int32  Language   = 12;
+}
+
+message AddAllianceMarkCst {
+	required string Pid   = 1;
+	required Coord  Coord = 2;
+	required string Name  = 3;
+}
+
+message DelAllianceMarkCst {
+	required string Pid   = 1;
+	required Coord  Coord = 2;
+}
+
+message GetAllianceSlavesCst {
+	required string Pid  = 1;
+	required int32  Page = 2;
+}
+
+message PayLiberationCst {
+	required string Pid    = 1;
+	required int32  Food   = 2;
+	required int32  Lumber = 3;
+	required int32  Marble = 4;
+	required int32  Steel  = 5;
+}
+
+message BuildCst {
+	required string Pid   = 1;
+	required string Name  = 2;
+	required Coord  Coord = 3;
+}
+
+message UpgradeCst {
+	required string Pid  = 1;
+	required string Name = 2;
+}
+
+message CancelBuildCst {
+	required string Pid     = 1;
+	required string EventId = 2;
+}
+
+message GiveUpBuildingCst {
+	required string Pid          = 1;
+	required string BuildingName = 2;
+}
+
+message CancelGiveUpBuildingCst {
+	required string Pid     = 1;
+	required string EventId = 2;
+}
+
+message GetRecentCoordByLevelCst {
+	required string Pid   = 1;
+	required int32  Level = 2;
+	required int32  Type  = 3;
+}
+
+message GetCanAddForceCoordCst {
+	required string Pid   = 1;
+}
+
+message GetRecentMonsterByLevelCst {
+	required string Pid   = 1;
+	required int32  Level = 2;
+}
+
+message GetMonsterByCoordCst {
+	required string Pid   = 1;
+	required Coord  Coord  = 2;
+}
+
+message GetDominationByCoordCst {
+	required string Pid   = 1;
+	required Coord  Coord  = 2;
+}
+
+message LevelUpCst {
+	required string Pid      = 1;
+	required string HeroName = 2;
+}
+
+message LotteryCst {
+	required string Pid       = 1;
+	required string GroupName = 2;
+}
+
+message OpenChestCst {
+	required string Pid       = 1;
+	required string ChestName = 2;
+}
+
+message GetTaskRewardCst {
+	required string Pid    = 1;
+	required int32  TaskId = 2;
+}
+
+message GetVitalityRewardCst {
+	required string Pid    = 1;
+	required int32  RewardId = 2;
+}
+
+message GetChapterTaskRewardCst {
+	required string Pid    = 1;
+	required int32  TaskId = 2;
+}
+
+message GetTaskDailyCst {
+	required string Pid    = 1;
+}
+
+message GetChapterRewardCst {
+	required string Pid    = 1;
+}
+
+message AllianceChatCst {
+	required string Pid     = 1;
+	required string Content = 2;
+}
+
+message SendAllianceMessageCst {
+	required string Pid     = 1;
+	required string Content = 2;
+}
+
+message ReturnTroopImmediatelyCst {
+	required string Pid     = 1;
+	required string TroopId = 2;
+}
+
+message GetForceRewardCst {
+	required string Pid   = 1;
+	required int32  Level = 2;
+}
+
+message GetCapturePersonalPointsCst {
+	required string Pid = 1;
+}
+
+message LoginCst {
+	required string Pid   = 1;
+	optional int32  MapSN = 2;
+}
+
+message ExchangeTroopHeroCst {
+	required string       Pid           = 1;
+	repeated Formation Formations = 2;
+}
+
+message GetDailyLimitExpiredCst {
+	required string Pid   = 1;
+}
+
+message SetActivityCst {
+    required string Activity   =1 ;
+}

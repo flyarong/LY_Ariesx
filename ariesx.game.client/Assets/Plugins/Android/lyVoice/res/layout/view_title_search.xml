@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/rl_linevoice_title"
+    android:background="@drawable/search_big_background"
+    android:layout_height="42dp">
+
+    <com.lyvoice.widget.StrokeTextView
+        android:id="@+id/tv_title_search_cancel"
+        android:layout_width="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp"
+        android:textColor="@color/tab_title"
+        android:text="@string/title_cancel"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_height="match_parent"
+        android:src="@drawable/ilong_chat_arrow_left"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_centerVertical="true"
+        android:paddingRight="10dp"
+        android:background="@drawable/search_back"
+        android:layout_toLeftOf="@+id/tv_title_search_cancel"
+        android:gravity="center_vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/search_img"
+        />
+
+    <EditText
+        android:id="@+id/tv_title_search_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:imeOptions="actionSearch"
+        android:textSize="13sp"
+        android:singleLine="true"
+        android:hint="@string/search_hint"
+        android:background="@null"
+        />
+    </LinearLayout>
+
+</RelativeLayout>

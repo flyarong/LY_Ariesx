@@ -1,0 +1,229 @@
+syntax = "proto2";
+package protocol;
+
+import "battle_report.proto";
+import "types.proto";
+
+message Resources {
+	required int32 Food    = 1;
+	required int32 Lumber  = 2;
+	required int32 Marble  = 3;
+	required int32 Steel   = 4;
+	required int32 Crystal = 5;
+}
+
+message ResourcesCollected {
+	required bool Food    = 1;
+	required bool Lumber  = 2;
+	required bool Marble  = 3;
+	required bool Steel   = 4;
+	required bool Crystal = 5;
+}
+
+message FallenTarget {
+	required Coord Coord    = 1;
+	required int32 MapSN    = 2;
+	required int32 ZoneSN   = 3;
+	required int32 SN       = 4;
+}
+
+message Skill {
+	required string Name = 1;
+	repeated string Args = 2;
+}
+
+message NpcHero {
+	required string Name            = 1;
+	required int32  Level           = 2;
+	required int32  ArmyAmount      = 3;
+	required float  ArmyAmountBonus = 4;
+	repeated Skill  Skills          = 10;
+}
+
+message Hero {
+	required string Id              = 1;
+	required string Name            = 2;
+	required int32  Level           = 3;
+	required int32  ArmyAmount      = 4;
+	required int32  Energy          = 5;
+	required int64  EnergyUpdatedAt = 6;
+	required int32  FragmentCount   = 7;
+
+	required bool IsNew        = 10;
+	required bool OnTroop      = 11;
+	required bool IsRecruiting = 12;
+
+	repeated Skill Skills = 20;
+}
+
+message Currency {
+	required int32 Gold = 1;
+	required int32 Gem  = 2;
+}
+
+message CurrencyCollected {
+	required bool Gold = 1;
+	required bool Gem  = 2;
+}
+
+message BattleReport {
+	required string           Id             = 1;
+	required bool             IsRead         = 2;
+	required int64            Timestamp      = 3;
+	required Currency         Currency       = 4;
+	required Resources        Resources      = 5;
+	optional Battle.Report    Report         = 6;
+	required string           ChestName      = 7;
+	required bool             HasAlliance    = 8;
+}
+
+message PersonalMessage {
+	message Message {
+		required string Content   = 1;
+		required bool   IsSend    = 2;
+		required int64  Timestamp = 3;
+	}
+	required string  PlayerId     = 6;
+	required string  PlayerName   = 1;
+	required string  AllianceName = 2;
+	required int64   Timestamp    = 3;
+	required bool    IsRead       = 4;
+	repeated Message Messages     = 5;
+	required int32   MapSN        = 7;
+	required int32   Avatar       = 8;
+}
+
+message HeroFragment {
+	required string Name  = 1;
+	required int32  Count = 2;
+}
+
+message CommonReward {
+	required Currency     Currency      = 1;
+	required Resources    Resources     = 2;
+	repeated HeroFragment Fragments     = 3;
+	repeated Chest        Chests        = 4;
+	required int32        PointLimit    = 5;
+}
+
+message SystemMessage {
+	required string Id         = 1;
+	required string To         = 2;
+	required int64  Timestamp  = 3;
+	required bool   IsRead     = 4;
+	required bool   IsCollect  = 5;
+	required bool   IsTemplate = 6;
+	required string Subject    = 7;
+	required string Body       = 8;
+
+	repeated string       Params     = 10;
+	optional CommonReward Attachment = 11;
+}
+
+message FieldFirstDown {
+	message Record {
+		required int32 Level     = 1;
+		required bool  IsCollect = 2;
+	}
+	repeated Record Records = 1;
+}
+
+message Tribute {
+	required int64 Timestamp = 1;
+}
+
+message Task {
+	required int32 Id        = 1;
+	required int32 Value     = 2;
+	required bool  IsDone    = 3;
+	required bool  IsCollect = 4;
+}
+
+message Daily {
+	required string Id           = 1;
+	required int32  Vitality     = 2;
+	required int32  TaskLevel    = 3;
+	repeated int32  CanGetReward = 4;
+}
+
+message ChapterTask {
+	required int32 Id        = 1;
+	required int32 Value     = 2;
+	required bool  IsDone    = 3;
+	required bool  IsCollect = 4;
+}
+
+message Chest {
+	required string Name      = 1;
+	required int32  Count     = 2;
+}
+
+message DailyGift {
+    required string ProductId  = 1;
+    required bool   isBuy      = 2;
+}
+
+message TreasureMap {
+	required int32 Amount     = 1;
+	required int64 CDExpireAt = 2;
+}
+
+message Mark {
+	required Coord  Coord = 1;
+	required string Name  = 2;
+}
+
+message PlayerMarks {
+	repeated Mark Marks = 1;
+}
+
+message JoinCondition {
+	required int32 Type       = 1;
+	required int32 ForceLimit = 2;
+}
+
+message AllianceJoinRequest {
+	required string PlayerId   = 1;
+	required string PlayerName = 2;
+	required string Message    = 3;
+}
+
+message DailyLimit {
+	required int32 ChestLimit          = 1;
+	required int32 ChestCurrent        = 2;
+	required Resources ResourceLimit   = 3;
+	required Resources ResourceCurrent = 4;
+	required int32 GoldLimit           = 5;
+	required int32 GoldCurrent         = 6;
+}
+
+message ForceRewards {
+	repeated int32 Levels = 1;
+}
+
+message MonthCard {
+    required string MonthCardId = 1;
+    required int64  ExpiredTime = 2;
+    required bool   IsReward    = 3;
+    required int64  DailyExpiredAt = 4;
+}
+
+message HeroItem {
+	required int32 Fence = 1;
+	required string HeroName = 2;
+	required int32  FragmentCount = 3;
+	required int32  GoldPrice = 4;
+	required bool   IsCollect = 5;
+}
+
+message DailyShop {
+	required string Id = 1;
+	required string RequestId = 2;
+	required bool Enable = 3;
+	required int32 FreeGold = 5;
+	required bool FreeGoldCollected = 6;
+	required int32 FreeGem = 7;
+	required bool FreeGemCollected = 8;
+    repeated HeroItem HeroItem = 9;
+	required int64 ExpiredAt = 10;
+}

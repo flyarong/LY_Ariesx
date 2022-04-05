@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <include layout="@layout/view_title_listen_voice"
+        android:visibility="gone"
+        ></include>
+
+    <include layout="@layout/view_title_search"></include>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lv_linevoice_anchor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
+        android:layout_below="@+id/rl_linevoice_title"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        android:transcriptMode="normal" />
+
+    <LinearLayout
+        android:id="@+id/ll_linevoice_noanchor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_linevoice_title"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ilong_chat_no_anchor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/no_anchor_search_text"
+            android:textColor="@color/no_anchor_tv"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_linevoice_title">
+
+        <include layout="@layout/view_no_net_no_btn"></include>
+
+        <include layout="@layout/view_load_error_no_btn"></include>
+    </RelativeLayout>
+</RelativeLayout>

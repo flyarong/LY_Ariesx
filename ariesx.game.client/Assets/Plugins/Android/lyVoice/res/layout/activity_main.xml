@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:id="@+id/fl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/view_title_ll"
+        android:layout_marginTop="-2.5dp" />
+
+    <!--<include layout="@layout/view_title"></include>-->
+    <LinearLayout
+        android:id="@+id/view_title_ll"
+        android:layout_width="match_parent"
+        android:layout_height="43dp">
+
+        <com.lyvoice.widget.StrokeTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/tab1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxEms="10"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:text="@string/tv_linevoice_title"
+            android:textColor="@color/tab_title"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40.5dp"
+            android:background="@drawable/tab2">
+
+            <ImageView
+                android:id="@+id/btn_title_main_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="3.5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:src="@drawable/close" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

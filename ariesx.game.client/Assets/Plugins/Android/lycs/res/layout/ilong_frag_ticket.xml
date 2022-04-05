@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical" >
+
+    <include layout="@layout/ilong_all_actionbar" >
+    </include>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorDivideLine" />
+
+    <FrameLayout
+        android:id="@+id/fl_ticket_level"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/rl_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:paddingBottom="20dp" >
+
+            <ImageView
+                android:id="@+id/iv_noresult"
+                android:layout_width="182dp"
+                android:layout_height="165dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/bg_nonework" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/iv_noresult"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/search_bg_nonetwork"
+                android:textColor="@color/colorTextGaryDeep"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="95dp"
+                android:layout_height="39dp"
+                android:layout_below="@id/tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ilong_bg_orange"
+                android:text="@string/reload"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/sv_noconten_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="20dp" >
+
+            <ImageView
+                android:id="@+id/iv_nocontent"
+                android:layout_width="182dp"
+                android:layout_height="165dp"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/bg_notask" />
+
+            <TextView
+                android:id="@+id/tv_nocontext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/no_content"
+                android:textColor="@color/colorTextGaryDeep"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

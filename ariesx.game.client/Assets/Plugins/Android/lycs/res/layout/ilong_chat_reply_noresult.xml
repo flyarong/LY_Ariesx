@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="20dp"
+    android:background="@drawable/ilong_square_left_bg"
+    android:orientation="vertical"
+    android:padding="15dp" >
+
+    <TextView
+        android:id="@+id/ilong_chat_reply_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ilong_customer_balck"
+        android:textSize="15sp" />
+
+    <RelativeLayout
+        android:id="@+id/ilong_chat_reply_eveluate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/ilong_chat_reply_negative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_alignRight="@id/ilong_chat_reply_prompt"
+            android:layout_below="@id/ilong_chat_reply_prompt"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:text="@string/im_tohumanCustomer"
+            android:textColor="#ff8d27"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/ilong_chat_reply_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="time"
+        android:textColor="#a4a4a4"
+        android:textSize="12sp" />
+
+</LinearLayout>

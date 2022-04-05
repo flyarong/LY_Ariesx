@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/ilong_pop_leave_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/help_toyou"
+        android:textColor="@color/ilong_customer_balck"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="15dp" >
+
+        <Button
+            android:id="@+id/ilong_pop_leave_nagetive"
+            android:layout_width="50dp"
+            android:layout_height="29dp"
+            android:layout_marginLeft="75dp"
+            android:background="@drawable/ilong_chat_send_et_bg"
+            android:gravity="center"
+            android:text="@string/no_only"
+            android:textColor="@color/ilong_customer_balck"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/ilong_pop_leave_positive"
+            android:layout_width="50dp"
+            android:layout_height="29dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="75dp"
+            android:background="@drawable/ilong_chat_send_et_bg_yellow"
+            android:gravity="center"
+            android:text="@string/yes"
+            android:textColor="#ff8d27"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+</LinearLayout>

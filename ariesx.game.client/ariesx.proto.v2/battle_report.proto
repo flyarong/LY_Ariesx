@@ -1,0 +1,112 @@
+syntax = "proto2";
+package protocol;
+
+import "types.proto";
+
+message Battle {
+
+	message Deaths {
+		required string Name   = 1;
+		required int32  Amount = 2;
+	}
+
+	message BasicInfo {
+		required string Name           = 1;
+		required string AllianceName   = 2;
+		required int32  AllianceEmblem = 3;
+		required string Id             = 4;
+		required int32  Avatar         = 5;
+	}
+
+	message PlayerInfo {
+		required BasicInfo BasicInfo    = 1;
+		required int32     TotalPower   = 2;
+		required int32     RemainPower  = 3;
+		required int32     Rating       = 4;
+
+		repeated Hero      BeforeHeroes = 10;
+		repeated Hero      AfterHeroes  = 11;
+		repeated Deaths    Deaths       = 12;
+	}
+
+	message Result {
+		message Common {
+			required int32 RemainTroops  = 1;
+			required int32 NextTroopType = 2;
+		}
+		message Pve {
+			required int32 RemainTroops  = 1;
+			required int32 CurrentNumber = 2;
+		}
+		message Siege {
+			required int32 DurabilityLose   = 1;
+			required int32 DurabilityRemain = 2;
+		}
+		message Final {
+			required bool Fallen = 1;
+			required bool Broken = 2;
+			required bool Occupy = 3;
+		}
+		required Final  FinalInfo   = 1;
+		optional Common PvpInfo     = 2;
+		optional Pve    PveInfo     = 3;
+		optional Siege  SiegeInfo   = 4;
+	}
+
+	message Report {
+		required PlayerInfo Attacker  = 1;
+		required PlayerInfo Defender  = 2;
+		required string     Winner    = 3;
+		required Result     Result    = 4;
+		required PointInfo  PointInfo = 5;
+	}
+
+	message ReportRounds {
+		repeated Round Rounds = 1;
+	}
+
+	message Forces {
+		repeated Hero AttackerHeroes = 1;
+		repeated Hero DefenderHeroes = 2;
+	}
+
+	message Hero {
+		required string Id              = 1;
+		required string Name            = 2;
+		required int32  Level           = 4;
+		required int32  ArmyAmount      = 5;
+		required float  ArmyAmountBonus = 6;
+		required string Force           = 7; // attacker or defender
+		required int32  Speed           = 10;
+		required int32  Attack          = 11;
+		required int32  Defence         = 12;
+		required int32  Position        = 13;
+		required int32  DeadAmount      = 14;
+		required int32  TotalDamage     = 15;
+		required int32  TotalHeal       = 16;
+
+		required int32  SkillTriggeredTimes = 20;
+	}
+
+	message Round {
+		repeated Action Actions = 1;
+	}
+
+	message Action {
+		required string HeroId       = 1;
+		required string Type         = 2;
+		required string Name         = 3;
+		required int32  Amount       = 4;
+		required int32  Speed        = 5;
+		required int32  Rounds       = 6;
+		required int32  RemainAmount = 7;
+		required string DispelName   = 8;
+		required float  Percent      = 9;
+		required bool   IsHalo       = 10;
+		required string Trigger      = 11;
+		required bool   ToSelf       = 12;
+		required string Via          = 13;
+		repeated int32  Positions    = 14;
+		repeated Action Actions      = 20;
+	}
+}

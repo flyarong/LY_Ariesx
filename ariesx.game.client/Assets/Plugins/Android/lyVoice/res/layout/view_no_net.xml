@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_linevoice_nonet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:paddingBottom="10dp"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:visibility="gone">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ilong_chat_no_net" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/no_net"
+        android:textColor="@color/no_anchor_tv"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/view_no_anchor_btn1"
+        android:layout_width="120dp"
+        android:background="@drawable/refresh_btn_background"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_height="35dp">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:src="@drawable/refresh_icon"
+            android:layout_height="15dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/refresh_tip"
+            android:text="@string/tip_refersh_text"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

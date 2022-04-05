@@ -1,0 +1,64 @@
+syntax = "proto2";
+package protocol;
+
+message Coord {
+	required int32 X = 1;
+	required int32 Y = 2;
+}
+
+message PointInfo {
+	required Coord Coord       = 1;
+	required int32 MapSN       = 2;
+	required int32 ZoneSN      = 3;
+	required int32 ElementType = 4;
+
+	optional ElementBuilding Building = 10;
+	optional ElementCamp     Camp     = 11;
+	optional ElementNpcCity  NpcCity  = 12;
+	optional ElementPass     Pass     = 13;
+	optional ElementResource Resource = 14;
+	optional ElementMonster  Monster  = 15;
+}
+
+message ElementMonster {
+	required int32 Level = 1;
+}
+
+message ElementResource {
+	required int32 Type  = 1;
+	required int32 Level = 2;
+}
+
+message ElementNpcCity {
+	required int32 SN            = 1;
+	required bool  IsCenter      = 2;
+}
+
+message ElementCamp {
+	required bool  Visible     = 1;
+	required int32 RemainTimes = 2;
+	required int32 Level       = 3;
+	required int32 Gold        = 4;
+}
+
+message ElementPass {
+	required int32 Type  = 1;
+	required int32 Level = 2;
+	required int32 SN    = 3;
+}
+
+message ElementBuilding {
+	required string Name      = 1;
+	required int32  Type      = 2;
+	required int32  Level     = 3;
+	required Coord  Coord     = 4;
+	required bool   IsUpgrade = 5;
+	required bool   IsBroken  = 6;
+}
+
+message AllianceOwnedPoint {
+	required Coord Coord       = 1;
+	required int32 MapSN       = 2;
+	required int32 ZoneSN      = 3;
+	required string AllianceId = 4;
+}

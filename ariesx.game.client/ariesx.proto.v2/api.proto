@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+package protocol;
+
+message ApiReq {
+	required string ReqName = 1;
+	required bytes  Data    = 2;
+	optional int32  Flag    = 3;
+}
+
+message ApiAck {
+	required string AckName = 1;
+	required bytes  Data    = 2;
+	optional int32  Flag    = 3;
+	optional int32  Counter = 4;
+}
+
+message TestMessage {
+	required int32  Id   = 1;
+	required string Name = 2;
+}

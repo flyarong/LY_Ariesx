@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_title_ll"
+    android:layout_width="match_parent"
+    android:layout_height="43dp">
+
+    <com.lyvoice.widget.StrokeTextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="15sp"
+        android:maxEms="10"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/tab_title"
+        android:background="@drawable/tab1"
+        android:text="@string/tv_linevoice_title"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/tab2"
+        android:layout_height="40.5dp">
+
+        <ImageView
+            android:id="@+id/btn_title_main_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@drawable/close"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="3.5dp"
+            />
+
+    </RelativeLayout>
+   
+
+
+</LinearLayout>

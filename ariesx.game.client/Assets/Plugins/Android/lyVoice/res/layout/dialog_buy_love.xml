@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ilong_chat_buy_love_background"
+    android:orientation="vertical"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp">
+
+
+    <com.lyvoice.widget.StrokeTextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="@string/buy_love_title"
+        android:textColor="@color/tab_title"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/dialog_buylove_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="27.5dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="32.5dp"
+            android:layout_height="27.5dp"
+            android:src="@drawable/liveroom_love" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/buy_love_text"
+            android:textColor="@color/dialog_buylove_love_text"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/buy_love_info"
+            android:textColor="@color/dialog_buylove_info"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_buy_love_cut"
+            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ilong_chat_dialog_buylove_btn_cut"
+            />
+
+        <SeekBar
+            android:id="@+id/seekbar_buy_love"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            android:max="49"
+            android:progress="20"
+            android:thumbOffset="0dip"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:progressDrawable="@drawable/ilong_chat_dialog_buylove_seekbar"
+            android:thumb="@drawable/ilong_chat_seekbar_point" />
+
+        <ImageView
+            android:id="@+id/btn_buy_love_add"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:src="@drawable/ilong_chat_dialog_buylove_btn_add"
+            />
+        
+        <TextView
+            android:id="@+id/tv_buy_love_seeknum"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:textColor="@color/dialog_buylove_num"
+            android:text="20"
+            android:textSize="11sp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/buy_love_num_background"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_buy_love_btn"
+        android:layout_width="119dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/collect_btn"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_height="42dp">
+
+        <TextView
+            android:id="@+id/tv_buy_love_btn_seeknum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="12sp"
+            android:textColor="@color/dialog_buylove_num_btn"
+            android:text="20"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="14sp"
+            android:textColor="@color/dialog_buylove_num_btn"
+            android:text="@string/buy_love_btn"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

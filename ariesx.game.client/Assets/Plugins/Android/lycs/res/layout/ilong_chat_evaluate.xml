@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f7f9" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/ilong_evaluate_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/ilong_evaluate_finish_bg"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="36dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <View
+                android:layout_width="95dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#999999" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/evaluate"
+                android:textColor="#999999"
+                android:textSize="11sp" />
+
+            <View
+                android:layout_width="95dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#999999" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ilong_evaluate_describe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/evaluate_exellent"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <com.lyservice.control.StarBar
+            android:id="@+id/ilong_evaluate_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="15dp"
+            app:markNumber="3"
+            app:starCount="3"
+            app:starDistance="36"
+            app:starEmpty="@drawable/ilong_evaluate_empty"
+            app:starFill="@drawable/ilong_evaluate_fuul"
+            app:starSize="40" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ilong_evaluate_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:transcriptMode="normal" />
+
+        <Button
+            android:id="@+id/ilong_evaluate_send"
+            android:layout_width="75dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/ilong_chat_send_bt_bg"
+            android:gravity="center"
+            android:text="@string/evaluate_submit"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="#c4c4c4" />
+
+        <Button
+            android:id="@+id/ilong_evaluate_creat_bt"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/new_session"
+            android:textColor="#ff8d27"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</ScrollView> 

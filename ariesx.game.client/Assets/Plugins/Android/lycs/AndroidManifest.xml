@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ilongyuan.customerservice"
+    android:versionCode="3301"
+    android:versionName="3.3.1" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- android:label="客服测试服3.3.0" -->
+    <application android:allowBackup="true">
+        <activity
+            android:name="com.lyservice.activity.TestMainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|locale|layoutDirection"
+            android:screenOrientation="portrait" >
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+
+        <!-- 模拟游戏界面 -->
+        <activity
+            android:name="com.lyservice.activity.TestGameActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|locale|layoutDirection"
+            android:screenOrientation="sensorPortrait" />
+
+        <!-- 图片查看器 -->
+        <activity
+            android:name="uk.co.senab.photoview.activity.ImagePagerActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize|locale|layoutDirection"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+        <!-- 客服提单界面 -->
+        <activity
+            android:name="com.lyservice.activity.CustomerActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize|locale|layoutDirection"
+            android:launchMode="singleTask"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/LyServiceMainActivityTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        
+
+        <!-- 连接websocket的Service -->
+        <service android:name="com.lyservice.service.WebSocketService" />
+    </application>
+
+</manifest>

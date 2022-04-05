@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="49dp"
+    android:id="@+id/rl_listen_voice_layout_bottom"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_vertical">
+
+    <EditText
+        android:id="@+id/ilong_ac_send_message_et"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_weight="1"
+        android:background="@drawable/input_msg_background"
+        android:gravity="center_vertical"
+        android:hint="@string/tv_linevoice_input_hint"
+        android:maxLength="300"
+        android:paddingLeft="10dp"
+        android:textColor="@color/listen_voice_input_real_text"
+        android:textColorHint="@color/listen_voice_input_text"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:visibility="gone"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/ilong_chat_input_emoticon" />
+
+    <com.lyvoice.widget.StrokeTextViewBtn
+        android:id="@+id/tv_listen_voice_send_text_btn"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:text="@string/tv_linevoice_input_btn"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:textColor="@color/tab_title"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/collect_btn"
+        />
+
+</LinearLayout>

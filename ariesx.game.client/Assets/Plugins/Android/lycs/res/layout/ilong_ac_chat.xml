@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chat_root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f7f9"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/chat_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/total_view"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical" >
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/ilong_ac_swipe_ly"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ilong_ac_send_message_rl"
+            android:layout_weight="1" >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/ilong_ac_message_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:clipToPadding="false"
+                android:transcriptMode="normal" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <Button
+            android:id="@+id/ilong_newsession_creat_bt"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/new_session"
+            android:textColor="#ff8d27"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/ilong_ac_evaluate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/ilong_chat_evaluate"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ilong_ac_send_message_rl"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/ilong_gost_buttom" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@android:color/white"
+                android:gravity="center" >
+
+                <EditText
+                    android:id="@+id/ilong_ac_send_message_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/ilong_chat_send_et_bg"
+                    android:gravity="center_vertical"
+                    android:hint="@string/input_message"
+                    android:maxLength="300"
+                    android:paddingLeft="5dp"
+                    android:textColorHint="#999999"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/ilong_ac_send_picture_bt"
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="9dp"
+                    android:background="@drawable/ilong_send_pictrure" />
+
+                <Button
+                    android:id="@+id/ilong_ac_send_message_bt"
+                    android:layout_width="55dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ilong_bg_orange"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:text="@string/send"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/total_view"
+        layout="@layout/ilong_all_actionbar" >
+    </include>
+
+</RelativeLayout>

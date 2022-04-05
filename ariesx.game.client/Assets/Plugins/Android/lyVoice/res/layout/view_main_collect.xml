@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_linevoice_head"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:layout_below="@+id/search_view"
+    android:layout_marginTop="13.5dp"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mycollection_title"
+            android:textColor="@color/item_collect_title"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_main_collect_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_centerVertical="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mycollection_btn"
+                android:textColor="@color/item_collect_btn"
+                android:textSize="9sp" />
+
+            <ImageView
+                android:layout_width="3dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_height="8dp"
+                android:src="@drawable/collect_all_arrow" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <com.lyvoice.widget.HorizontalListView
+        android:id="@+id/lv_linevoice_collect_anchor"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"></com.lyvoice.widget.HorizontalListView>
+</LinearLayout>

@@ -1,0 +1,8 @@
+syntax = "proto2";
+package protocol;
+
+import "struct.proto";
+
+message StaticMap {
+	repeated Point Points = 1;
+}

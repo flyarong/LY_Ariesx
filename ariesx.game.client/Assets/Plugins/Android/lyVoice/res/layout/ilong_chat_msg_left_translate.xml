@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="50dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:id="@+id/iv_chat_img"
+        android:layout_marginLeft="0.5dp"
+        android:layout_marginTop="0.5dp"
+        android:src="@drawable/ilong_chat_anchor_default_img"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/img_border" />
+
+    <ImageView
+        android:id="@+id/iv_chat_msg_vip"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:visibility="gone"
+        android:src="@drawable/vip_logo"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="23dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_chat_msg_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textColor="@color/ilong_text_title"
+        android:layout_toRightOf="@+id/iv_chat_img"
+        android:layout_marginLeft="4dp"
+        android:text="木有更多了"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/tv_chat_msg_name"
+        android:layout_toRightOf="@+id/iv_chat_img"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="4dp"
+        android:orientation="vertical"
+        android:background="@drawable/chat_msg_left_background"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tv_chat_msg_content"
+            android:layout_width="wrap_content"
+            android:textColor="@color/ilong_text_msg"
+            android:textSize="9sp"
+            android:text="我是内容内容"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/chat_msg_line"
+            />
+        <TextView
+            android:id="@+id/tv_chat_msg_content_translate"
+            android:layout_width="wrap_content"
+            android:textColor="@color/ilong_text_msg"
+            android:textSize="9sp"
+            android:layout_marginTop="5dp"
+            android:text="contextcontextcontext"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    
+</RelativeLayout>

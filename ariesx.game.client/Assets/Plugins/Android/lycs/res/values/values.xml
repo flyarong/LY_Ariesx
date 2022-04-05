@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBackground">#F5F7F9</color>
+    <color name="colorBgDialog">#99202020</color>
+    <color name="colorBlack">#222222</color>
+    <color name="colorCircle">#AEB1B4</color>
+    <color name="colorDetialContent">#666666</color>
+    <color name="colorDetialTimeContent">#a4a4a4</color>
+    <color name="colorDivideLine">#e4e4e4</color>
+    <color name="colorFinish">#2DBE3A</color>
+    <color name="colorGary">#a1a1a1</color>
+    <color name="colorIsDealing">#FF8D27</color>
+    <color name="colorNotDeal">#F1423B</color>
+    <color name="colorTextBlack">#000000</color>
+    <color name="colorTextGary">#CCC</color>
+    <color name="colorTextGaryDeep">#999999</color>
+    <color name="colorTextOrange">#FF8D27</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="ilong_customer_balck">#444444</color>
+    <color name="ilong_customer_gary">#a4a4a4</color>
+    <color name="ilong_customer_load_color">#B5B5B5</color>
+    <color name="ilong_customer_title_bg_colr">#00a7ff</color>
+    <declare-styleable name="CircleImageView"><attr format="dimension" name="civ_border_width"/><attr format="color" name="civ_border_color"/><attr format="boolean" name="civ_border_overlay"/><attr format="color" name="civ_fill_color"/></declare-styleable>
+    <declare-styleable name="RatingBar"><attr format="integer" name="starDistance"/><attr format="integer" name="starSize"/><attr format="integer" name="starCount"/><attr format="reference" name="starEmpty"/><attr format="reference" name="starFill"/><attr format="integer" name="markNumber"/></declare-styleable>
+    <dimen name="actionbar_height">50dp</dimen>
+    <dimen name="title_height">60dp</dimen>
+    <dimen name="ui_margin_left">10dp</dimen>
+    <dimen name="ui_margin_right">10dp</dimen>
+    <dimen name="wv_quiz_height">200dp</dimen>
+    <string name="CS_succ">Customer service successfully connected.</string>
+    <string name="actionbar_title">Customer service</string>
+    <string name="connect_fail">Connection failed</string>
+    <string name="data_anomaly">Data exception</string>
+    <string name="dialog_gen_cancel">Cancel</string>
+    <string name="dialog_gen_ok">Confirm</string>
+    <string name="dialog_gen_title">Help us understand how we can server you better</string>
+    <string name="enter">进入客服系统</string>
+    <string name="evaluate">Satisfaction feedback</string>
+    <string name="evaluate_choice">Please help us understand how we can serve you better.</string>
+    <string name="evaluate_exellent">Very satisfied</string>
+    <string name="evaluate_good">Satisfied</string>
+    <string name="evaluate_myevaluate">My comment:</string>
+    <string name="evaluate_submit">Submit</string>
+    <string name="evaluate_success">Commend recorded</string>
+    <string name="evaluate_worse">Dissatisfied</string>
+    <string name="help_center">Help Center</string>
+    <string name="help_deal_finish_bad">We\'ve received your feedback\nfeel free to contact support if you\'d like.</string>
+    <string name="help_deal_finish_nice">We\'ve received your feedback and will be\nfollowing up with you to resolve your issue.</string>
+    <string name="help_deal_notdeal">Unsolved</string>
+    <string name="help_deal_ok">solved</string>
+    <string name="help_deal_title">Has your issue been resolved?</string>
+    <string name="help_detial">FAQs</string>
+    <string name="help_progress_notdeal">No.Add new issues.</string>
+    <string name="help_progress_ok">Yes, it\'s solved.</string>
+    <string name="help_toyou">Is that helpful for you?</string>
+    <string name="ilong_sdk">龙渊客服sdk demo</string>
+    <string name="ilong_ticket_detail_error">There is a problem with this submission, contact a support representative.</string>
+    <string name="ilong_ticket_progress_again">Add new questions</string>
+    <string name="ilong_ticket_progress_first">First question</string>
+    <string name="ilong_ticket_progress_title">Question Progress</string>
+    <string name="im_nofaqstohumanCustomer">Sorry, no FAQs, please contact customer service</string>
+    <string name="im_tohumanCustomer">Contact customer service</string>
+    <string name="imageUpload">Upload image</string>
+    <string name="image_choice">Please only choose png or jpg format images!</string>
+    <string name="image_most">Select up to 6  images</string>
+    <string name="image_nogif">GIF file format cannot be uploaded!</string>
+    <string name="image_question">There is a problem with the image size: too large or too small.</string>
+    <string name="image_upfail">Upload failed</string>
+    <string name="input_message">Please input your message</string>
+    <string name="input_user">请输入帐号</string>
+    <string name="my_question">My issue</string>
+    <string name="myticket_detial">Problem details</string>
+    <string name="network_anomaly">Abnormal network</string>
+    <string name="new_session">New Dialogue</string>
+    <string name="no">No, get in touch</string>
+    <string name="no_content">No content...</string>
+    <string name="no_empty">You must submit information.</string>
+    <string name="no_only">No</string>
+    <string name="online_question">Question online</string>
+    <string name="reload">Refresh</string>
+    <string name="search">Search</string>
+    <string name="search_bg_noask">Can you clarify the issue you are experiencing?</string>
+    <string name="search_bg_nonetwork">Connection failed, check your network status.</string>
+    <string name="search_bg_noresult">No results. Try another query.</string>
+    <string name="search_cancel">Cancel</string>
+    <string name="search_cannot">This item can not be queried</string>
+    <string name="send">Send</string>
+    <string name="ticket_contect">Contact information:</string>
+    <string name="ticket_deal_result">Issue outcome</string>
+    <string name="ticket_failed">Submission failed</string>
+    <string name="ticket_notUpload">The type of problem does not yet support submission</string>
+    <string name="ticket_success">Submitted successfully</string>
+    <string name="uploadForm">Submit</string>
+    <string name="viewpager_indicator">%1$d/%2$d</string>
+    <string name="yes">Yes</string>
+    <style name="GeneralDialog" parent="android:style/Theme.Dialog">
+
+        <!-- 背景颜色及和透明程度 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否去除边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="LyServiceMainActivityTheme" parent="android:style/Theme.Dialog">
+        <!-- Window attributes -->
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+    <style name="ilong_chat_evaluate" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="loading" parent="android:style/Theme.Dialog">
+
+        <!-- 背景颜色及和透明程度 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否去除边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否模糊 -->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+</resources>

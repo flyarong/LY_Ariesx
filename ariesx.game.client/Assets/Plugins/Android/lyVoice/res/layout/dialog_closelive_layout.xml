@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="330dp"
+        android:layout_height="202dp"
+        android:layout_gravity="center"
+        android:background="@drawable/ilong_chat_dialog_background"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="38dp">
+
+            <com.lyvoice.widget.StrokeTextView
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:gravity="center"
+                android:text="@string/dialog_main_title"
+                android:textColor="@color/tab_title"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/close_btn"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/clise_white"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ilong_chat_shape_corner_dialog_msg"
+            android:layout_height="50dp">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_closeline_title"
+                android:textSize="13sp"
+                android:layout_gravity="center"
+                android:textColor="@color/dialog_title"
+                android:gravity="center" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/negativeButton"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:background="@drawable/cancel_btn"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:textColor="@color/dialog_btn_cancel"
+                android:text="@string/dialog_endlisten_cancel" />
+
+            <Button
+                android:id="@+id/positiveButton"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20.0dip"
+                android:textSize="14sp"
+                android:textColor="@color/dialog_btn_sure"
+                android:background="@drawable/collect_btn"
+                android:gravity="center"
+                android:text="@string/dialog_endlisten_sure" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

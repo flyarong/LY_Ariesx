@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/iv_item_main_view"
+    android:layout_width="match_parent"
+    android:layout_height="57dp"
+    android:background="@drawable/ilong_chat_anchor_list_item_background">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="57dp" />
+
+    <RelativeLayout
+        android:id="@+id/iv_item_anchor_bgview"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="7.5dp">
+
+        <ImageView
+            android:id="@+id/iv_item_anchor"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="0.5dp"
+            android:layout_marginTop="0.5dp"
+            />
+
+        <ImageView
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:src="@drawable/img_border" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/iv_item_anchor_vip"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/vip_logo" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/iv_item_anchor_bgview"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_item_anchor_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:gravity="center_vertical"
+                android:text="中文"
+                android:textColor="@color/item_anchor_num"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:id="@+id/iv_item_anchor_language"
+                android:layout_width="9dp"
+                android:layout_height="9dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="3dp"
+                android:layout_toLeftOf="@+id/tv_item_anchor_language"
+                android:src="@drawable/item_language_icon" />
+
+            <LinearLayout
+                android:id="@+id/ll_item_anchor_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/iv_item_anchor_language">
+
+                <TextView
+                    android:id="@+id/tv_item_anchor_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="11"
+                    android:textColor="@color/item_anchor_title"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_item_anchor_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7.5dp"
+                    android:singleLine="true"
+                    android:layout_toRightOf="@+id/tv_item_anchor_title"
+                    android:gravity="center_vertical"
+                    android:text="Lv.10"
+                    android:textColor="@color/item_anchor_level"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/tv_item_anchor_watch_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:gravity="center_vertical"
+                android:text="1828"
+                android:textColor="@color/item_anchor_num"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:id="@+id/iv_item_anchor_watch_num"
+                android:layout_width="9dp"
+                android:layout_height="9dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="3dp"
+                android:layout_toLeftOf="@+id/tv_item_anchor_watch_num"
+                android:src="@drawable/ilong_chat_anchor_watch" />
+
+            <TextView
+                android:id="@+id/tv_item_anchor_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_item_anchor_watch_num"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:singleLine="true"
+                android:text="岁月只存在那一年一月一日"
+                android:textColor="@color/item_anchor_info"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

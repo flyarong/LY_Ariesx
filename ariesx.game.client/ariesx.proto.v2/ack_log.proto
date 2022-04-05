@@ -1,0 +1,9 @@
+syntax = "proto2";
+package protocol;
+
+message AckLog {
+	required string Uid       = 1;
+	required int64  TimeStamp = 2 ;
+	required string ServerId  = 3;
+	required bytes  Data      = 4;
+}

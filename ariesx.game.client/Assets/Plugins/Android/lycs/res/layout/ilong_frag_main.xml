@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical" >
+
+    <include layout="@layout/ilong_all_actionbar" >
+    </include>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorDivideLine" />
+
+    <LinearLayout
+        android:id="@+id/subTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/rl_header"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorWhite"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/btn_help"
+                android:layout_width="99dp"
+                android:layout_height="29dp"
+                android:background="@drawable/title_btn_orange_toleft"
+                android:gravity="center"
+                android:text="@string/help_center"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_quiz"
+                android:layout_width="99dp"
+                android:layout_height="29dp"
+                android:background="@drawable/title_btn_white_toright"
+                android:gravity="center"
+                android:text="@string/my_question"
+                android:textColor="@color/colorTextOrange"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

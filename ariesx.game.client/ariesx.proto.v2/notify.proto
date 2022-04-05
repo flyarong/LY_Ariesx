@@ -1,0 +1,273 @@
+syntax = "proto2";
+package protocol;
+
+import "types.proto";
+import "models.proto";
+import "struct.proto";
+
+message FeedBlocksNtf {
+	repeated Block Blocks = 1;
+}
+
+message FeedBlockMonsterNtf {
+	repeated MonsterBlock  MonsterBlocks = 1;
+}
+
+message FeedBlockDominationNtf {
+	repeated BossBlock  BossBlocks = 1;
+}
+
+message FeedBlocksMarchesNtf {
+	repeated EventMarch EventMarches = 1;
+}
+
+message ActivityNtf {
+	repeated Activity Activity = 1;
+}
+
+message EventMarchNtf {
+	required EventMarch EventMarch = 1;
+	required string     Method     = 2;
+}
+
+message EventRecruitNtf {
+	required EventRecruit EventRecruit = 1;
+	required string       Method       = 2;
+}
+
+message EventAbandonNtf {
+	required EventAbandon EventAbandon = 1;
+	required string       Method       = 2;
+}
+
+message EventGiveUpNtf {
+	required EventGiveUp EventGiveUp = 1;
+	required string      Method      = 2;
+}
+
+message EventBuildNtf {
+	required EventBuild EventBuild = 1;
+	required string     Method     = 2;
+}
+
+message HeroesNtf {
+	repeated Hero Heroes = 1;
+}
+
+message PlayerPointNtf {
+	required Point  Point  = 1;
+	required string Method = 2;
+}
+
+message FteStepNtf {
+	required string Key = 1;
+}
+
+message PlayerBuildingNtf {
+	required ElementBuilding Building    = 1;
+	required string          Method      = 2;
+	required int32           ElementType = 3;
+	required ElementResource Resource    = 4;
+}
+
+message ResourcesNtf {
+	required Resources Resources        = 1;
+	required Resources ChangedResources = 2;
+}
+
+message ResourcesLimitNtf {
+	required Resources ResourcesLimit = 1;
+}
+
+message CurrencyNtf {
+	required Currency Currency        = 1;
+	required Currency ChangedCurrency = 2;
+}
+
+message NewBattleReportCountNtf {
+	required int32 Count = 1;
+}
+
+message NewSystemMessageCountNtf {
+	required int32 Count = 1;
+}
+
+message NewPersonalMessageCountNtf {
+	required int32  Count = 1;
+	required string From  = 2;
+}
+
+message NewPersonalMessageNtf {
+	required PersonalMessage PersonalMessage = 1;
+}
+
+message WorldChatNtf {
+	required ChatMessage Message = 1;
+}
+
+message StateChatNtf {
+	required ChatMessage Message = 1;
+}
+
+
+message TroopArrivedNtf {
+	required PointInfo    PointInfo      = 1;
+	required bool         HasBattle      = 2;
+	required bool         IsWin          = 3;
+	required bool         IsOccupied     = 4;
+	required string       ReportId       = 5;
+	required string       TroopName      = 6;
+	required CommonReward Reward         = 7;
+	required Resources    Resources      = 8;
+	required Currency     Currency       = 9;
+	required int32        BattleTimes    = 10;
+	required string       DefenderName   = 11;
+	required int32        DefenderAvatar = 12;
+}
+
+message FieldFirstDownNtf {
+	required FieldFirstDown FieldFirstDown = 1;
+}
+
+message NewTroopNtf {
+	required Troop Troop = 1;
+}
+
+message TroopNtf {
+	required Troop Troop = 1;
+	required Coord Src   = 2;
+	required Coord Dst   = 3;
+}
+
+message ForceNtf {
+	required int32 Force = 1;
+}
+
+message NewTasksCountNtf {
+	required int32 Count = 1;
+}
+
+message ChapterTaskChangeNtf {
+	required int32 TaskId = 1;
+	required int32 Value  = 2;
+	required bool  IsDone = 3;
+}
+
+message TaskChangeNtf {
+	required int32 TaskId = 1;
+	required int32 Value  = 2;
+	required bool  IsDone = 3;
+}
+
+message PointLimitNtf {
+	required int32 PointLimit = 1;
+}
+
+message TreasureMapNtf {
+	required TreasureMap TreasureMap = 1;
+}
+
+message AllMarksNtf {
+	repeated Mark Marks = 1;
+}
+
+message AllianceMarkNtf {
+	required Mark   Mark   = 1;
+	required string Method = 2;
+}
+
+message AllianceMarksNtf {
+	repeated Mark Marks = 1;
+}
+
+message RelationNtf {
+	required string AllianceId         = 1;
+	required string AllianceName       = 2;
+	required int32  AllianceRole       = 3;
+	required string MasterAllianceId   = 4;
+	required string MasterAllianceName = 5;
+	required int64  QuitTimestamp      = 6;
+}
+
+message AllianceMessageNtf {
+	required AllianceMessage Message = 1;
+	required string          Method  = 2;
+}
+
+message FieldFirstDownRewardNtf {
+	required int32        Level     = 1;
+	optional CommonReward Reward    = 2;
+	required Resources    Resources = 3;
+	required Currency     Currency  = 4;
+}
+
+message EventMarchesNtf {
+	repeated EventMarch EventMarches = 1;
+}
+
+message ChestsNtf {
+	repeated Chest Chests = 1;
+}
+
+message DailyLimitNtf {
+	required DailyLimit Limit = 1;
+}
+
+message ResourcesProductionNtf {
+	required Resources Resources          = 1;
+	required Resources BuildingResources  = 2;
+	required Resources NpcResources       = 3;
+	required Resources AllResources       = 4;
+	required int32     TributeGoldBonus   = 5;
+}
+
+message FteNtf {
+	required bool IsFinished = 1;
+}
+
+message AlertsNtf {
+	repeated Coord Coords = 1;
+}
+
+message ResourcesCollectedNtf {
+	required ResourcesCollected ResourcesCollected = 1;
+}
+
+message CurrencyCollectedNtf {
+	required CurrencyCollected CurrencyCollected = 1;
+}
+
+message PaymentSuccessNtf {
+    required bool IsOK = 1;
+}
+
+message TroopHasBeenAttackedNtf {
+	required string TroopName      = 1;
+	required string AttackerName   = 2;
+	required int32  AttackerAvatar = 3;
+	required bool   DefenderWin    = 4;
+}
+
+message MiniMapAllyCoordsNtf {
+	required string Method = 1;
+	repeated Coord  Coords = 2;
+}
+
+message MiniMapAllianceCoordsNtf {
+	required string             Method = 1;
+	repeated AllianceOwnedPoint Points = 2;
+}
+
+message AllianceInfosNtf {
+	repeated AllianceBasicInfo Infos = 1;
+}
+
+message ShortIdNtf {
+	required string ShortId = 1;
+}
+
+// 充值奖励可领取
+message RechargeRewardNtf {
+	required int32 Level = 1;
+	required float Amount = 2;
+}

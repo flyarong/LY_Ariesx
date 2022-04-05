@@ -1,0 +1,542 @@
+syntax = "proto2";
+package protocol;
+
+import "types.proto";
+import "battle_report.proto";
+import "models.proto";
+import "struct.proto";
+
+message AddFteStepsAck {}
+message AllianceChatAck {}
+message ApprovalJoinAck {}
+message BuildAck {}
+message CallbackTroopAck {}
+message CancelBuildAck {}
+message CancelGiveUpBuildingAck {}
+message CancelMarchAck {}
+message FeedBlocksAck {}
+message GiveupBuildingAck {}
+message JoinAllianceAck {}
+message KickMemberAck {}
+message LevelUpAck {}
+message MarchAck {}
+message MarkBattleReportReadAck {}
+message MarkPersonalMessagesReadAck {}
+message MarkSystemMessageReadAck {}
+message PayLiberationAck {}
+message PromoteAck {}
+message QuitAllianceAck {}
+message DissolveAllianceAck {}
+message ReadHeroAck {}
+message RefuseJoinAck {}
+message ReturnTroopImmediatelyAck {}
+message SendAllianceMessageAck {}
+message SetAllianceAck {}
+message SetPlayerDescAck {}
+message UpgradeAck {}
+message WorldChatAck {}
+message StateChatAck {}
+message HeartbeatAck {}
+message PayExtraBuildQueueAck {}
+message SetMaxFteStepAck {}
+
+
+message ErrorAck {
+	required string Error    = 1;
+	required string ReferAck = 2;
+}
+
+message ReconnectAck {
+}
+
+message ConnectAck {
+	required bool Homeless = 1;
+	required bool IsNew    = 2;
+}
+
+message LoginAck {
+	required Player         Player         = 1;
+	optional Coord          HomeCoord      = 2;
+	required Resources      Resources      = 3;
+	required Resources      ResourcesLimit = 4;
+	required Tribute        Tribute        = 5;
+	repeated Chest          Chests         = 6;
+	optional bool           HadChangeName  = 8;
+
+	repeated Hero               Heroes             = 10;
+	repeated Troop              Troops             = 11;
+	repeated ElementBuilding    Buildings          = 12;
+	required bool               FteIsDone          = 13;
+	required ResourcesCollected ResourcesCollected = 14;
+	required CurrencyCollected  CurrencyCollected  = 16;
+
+	repeated EventMarch   EventMarches  = 20;
+	repeated EventAbandon EventAbandons = 21;
+	repeated EventRecruit EventRecruits = 22;
+	repeated EventBuild   EventBuilds   = 23;
+	repeated EventGiveUp  EventGiveUps  = 24;
+
+	required int64 Timestamp  = 100;
+	required int32 PointLimit = 101;
+
+	optional int64 WorldAt = 102;    // world创建时间
+
+	repeated MonthCard MonthCards = 103;
+}
+
+message PlayerPointsAck {
+	repeated Point Points = 1;
+}
+
+message AbandonPointAck {
+	required EventAbandon EventAbandon = 1;
+}
+
+message GetHeroesAck {
+	repeated Hero Heroes = 1;
+}
+
+message EditTroopAck {
+	required Troop Troop = 1;
+}
+
+message LotteryAck {
+	repeated LotteryResult Results = 1;
+}
+
+message OpenChestAck {
+	repeated LotteryResult Results = 1;
+}
+
+message GetBattleReportsAck {
+	repeated BattleReport Reports = 1;
+}
+
+message GetBattleReportAck {
+	required string              ReportId = 1;
+	required Battle.ReportRounds Rounds   = 2;
+}
+
+message GetSystemMessagesAck {
+	repeated SystemMessage Messages = 1;
+}
+
+message OpenAttachmentAck {
+	required Resources     Resources  = 1;
+	required Currency      Currency   = 2;
+	required CommonReward  Attachment = 3;
+	repeated LotteryResult Results    = 4;
+}
+
+message GetPersonalMessagesAck {
+	repeated PersonalMessage PersonalMessages = 1;
+}
+
+message GetPersonalMessageAck {
+	required PersonalMessage PersonalMessage = 1;
+}
+
+message GetWorldChatAck {
+	required ChatRoom ChatRoom = 1;
+}
+
+message GetStateChatAck {
+	required ChatRoom ChatRoom = 1;
+}
+
+message GetTributeAck {
+	required Resources    Resources = 1;
+	required Currency     Currency  = 2;
+	required CommonReward Reward    = 3;
+	required Tribute      Tribute   = 4;
+}
+
+message GetTreasureMapRewardAck {
+	required Resources    Resources = 1;
+	required Currency     Currency  = 2;
+	required CommonReward Reward    = 3;
+}
+
+message GetTaskDailyAck {
+	required int32 AllVitality     = 1;
+	repeated int32 CanGetReward = 2;
+	required int32 TaskLevel    = 3;
+}
+
+message GetTasksAck {
+	repeated Task Tasks        = 1;
+	required int32 AllVitality = 2;
+	required int64 ExpiredAt   = 3;
+}
+
+message GetTaskRewardAck {
+	required Task  Task     = 1;
+	required int32 Vitality = 2;
+}
+
+message GetVitalityRewardAck {
+	required Resources     Resources = 1;
+	required Currency      Currency  = 2;
+	required CommonReward  Reward    = 3;
+	required int32         RewardId  = 4;
+	repeated LotteryResult Results   = 5;
+}
+
+message GetChapterTasksAck {
+	repeated ChapterTask ChapterTasks = 1;
+}
+
+message GetChapterTaskRewardAck {
+	required Resources     Resources = 1;
+	required Currency      Currency  = 2;
+	required CommonReward  Reward    = 3;
+	repeated LotteryResult Results   = 4;
+	required int32         TaskId    = 5;
+}
+
+message GetChapterRewardAck {
+	required Resources     Resources = 1;
+	required Currency      Currency  = 2;
+	required CommonReward  Reward    = 3;
+	repeated ChapterTask   NewTasks  = 4;
+	repeated LotteryResult Results   = 5;
+}
+
+message RankAck {
+	optional RankPlayer Self    = 1;
+	repeated RankPlayer Players = 2;
+}
+
+message AllianceRankAck {
+	optional RankAlliance Self      = 1;
+	repeated RankAlliance Alliances = 2;
+}
+
+message AllianceOccupationRankAck {
+	optional RankAlliance Self      = 1;
+	repeated RankAlliance Alliances = 2;
+}
+
+message GetDominationRankAck {
+    optional RankDomination Self       = 1;
+    optional RankDomination Last       = 2;
+    repeated RankDomination Other      = 3;
+}
+
+message GetCaptureRankAck {
+	optional RankCapture Self      = 1;
+	repeated RankCapture Alliances = 2;
+}
+message GetCapturePersonalPointsAck {
+	required CapturePersonalPoints CapturePersonalPoints = 1;
+}
+
+message GetMeleeRankAck {
+	optional RankMelee Self    = 1;
+	repeated RankMelee Monster = 2;
+}
+
+message GetOccupyRankAck {
+	optional RankOccupy Self    = 1;
+	repeated RankOccupy Players = 2;
+}
+
+message GetOccupySelfRankAck {
+	required OccupySelf Self = 1;
+}
+
+message GetMonsterPointsAck {
+	required int32 Points = 1;
+}
+
+message AddMarkAck {
+	required Mark Mark = 1;
+}
+
+message DelMarkAck {
+	required Coord Coord = 1;
+}
+
+message CreateAllianceAck {
+	required Alliance Alliance = 1;
+}
+
+message GetAlliancesAck {
+	repeated AllianceCache AllianceCaches = 1;
+}
+
+message SearchAllianceAck {
+	optional AllianceCache AllianceCache = 1;
+}
+
+message GetAllianceAck {
+	required Alliance Alliance = 1;
+}
+
+message GetAllianceMembersAck {
+	repeated AllianceMember Members = 1;
+}
+
+message GetMyAllianceAck {
+	required Alliance         Alliance = 1;
+	required PlayerPublicInfo Self     = 2;
+}
+
+message GetPlayerPublicInfoAck {
+	required PlayerPublicInfo Info = 1;
+}
+
+message GetAllianceMessagesAck {
+	repeated AllianceMessage Messages = 1;
+	repeated AllianceMessage Chats    = 2;
+	repeated AllianceMessage SlaveInfo = 3;
+}
+
+message GetLiberationCostAck {
+	required int32 Costs = 1;
+	required int32 Needs = 2;
+}
+
+message GetAllianceFallenTargetsAck {
+	repeated FallenTarget Cities = 1;
+	repeated FallenTarget Passes = 2;
+}
+
+message GetAllianceFallenPlayersAck {
+	repeated FallenPlayer Players = 1;
+}
+
+message AddAllianceMarkAck {
+	required Mark Mark = 1;
+}
+
+message DelAllianceMarkAck {
+	required Coord Coord = 1;
+}
+
+message GetPointPlayerTroopsAck {
+	message Troop {
+		required string TroopId          = 1;
+		required string PlayerId         = 2;
+		required string PlayerName       = 3;
+		required int32  PlayerAvatar     = 4;
+		required string AllianceId       = 5;
+		required string MasterAllianceId = 6;
+	}
+	repeated Troop Troops = 1;
+}
+
+message GetFallenInfoAck {
+	repeated FallenInfo Infos = 1;
+}
+
+message GetPointNpcTroopsAck {
+	required int32    TotalCount   = 1;
+	required int32    Count        = 2;
+	repeated NpcTroop Troops       = 3;
+	required NpcTroop DefenceTroop = 4;
+	optional int64    RefreshAt    = 5;
+}
+
+message GetHeroesInfoAck {
+	repeated NpcHero Heroes = 1;
+}
+
+message GetCustomerServiceTokenAck {
+	required string Token   = 1;
+	required int64  Expired = 2;
+	required string ApiUrl  = 3;
+	required string IMUrl   = 4;
+}
+
+message GetRecentCoordByLevelAck {
+	required Coord Coord = 1;
+}
+
+message GetCanAddForceCoordAck {
+	required Coord Coord = 1;
+}
+
+message GetRecentMonsterByLevelAck {
+	required Coord Coord = 1;
+}
+
+message GetMonsterByCoordAck {
+	repeated MonsterTroop Troops =1;
+}
+
+message ChangeNameAck {
+	required string NewName = 1;
+}
+
+message GetForceRewardAck {
+	required Resources    Resources = 1;
+	required Currency     Currency  = 2;
+	required CommonReward Reward    = 3;
+}
+
+message GetForceRewardStatusAck {
+	required ForceRewards ForceRewards = 1;
+}
+
+message SendPersonalMessageAck {
+	required PersonalMessage Message = 1;
+}
+
+// 特价礼包状态
+message DailyChestStatusAck {
+    required bool CanBuy = 1;
+}
+
+// 获取商店信息
+message GetStoreInfoAck {
+    repeated DailyGift Gifts      = 1;
+    repeated MonthCard MonthCards = 2;
+	required DailyShop DailyShop  = 3;
+}
+
+// 宝石兑换金币
+message GemExchangeGoldAck {
+    required Currency     Currency      = 1;
+    required Resources    Resources     = 2;
+    required CommonReward Reward        = 3;
+}
+
+// 购买产品（内购）
+message BuyProductAck {
+    required string OrderId       = 1;
+}
+
+// 获取月卡奖励
+message GetMonthCardRewardAck {
+    required Currency     Currency       = 1;
+    required Resources    Resources      = 2;
+    required CommonReward Reward         = 3;
+    required int64        DailyExpiredAt = 4;
+}
+
+message OrderConfirmAck {
+    required bool      AllDone      = 1;
+    repeated OrderInfo OrderInfo    = 2;
+}
+
+message OccupyLogsAck {
+	repeated OccupyLog Logs = 1;
+}
+
+message CaptureLogsAck {
+	repeated CaptureLog Logs = 1;
+}
+
+// 更新订单状态
+message OrderUpdateAck {
+    required string OrderId   = 1; // 订单ID
+    required string Token     = 2; // 订单 token
+    required string ProductId = 3; // 产品 ID
+}
+
+// 确认月卡过期信息
+message IsMonthCardExpiredAck {
+    required bool IsExpired = 1; // 是否过期 true:过期 | false:未过期
+}
+
+// 回复活动『魔影入侵』不可召唤城市列表
+message DominationNotCallCityAck {
+    repeated Coord Coords = 1; // 坐标
+}
+
+// 回复活动『魔影入侵』页面信息
+message DominationInfoAck {
+    optional BossTroop Info = 1; // Boss军队信息
+}
+
+// 回复活动『魔影入侵』召唤历史信息
+message DominationHistoryAck {
+    repeated DominationHistory Info = 1; // 历史记录信息
+}
+
+// 回复活动『魔影入侵』地块Boss信息
+message GetDominationByCoordAck {
+	required BossTroop      Info       = 1; // Boss军队信息
+	optional RankDomination Self       = 2; // 个人排行
+    repeated RankDomination Other      = 3; // 排行榜列表
+}
+
+// 回复活动『魔影入侵』详细奖励信息 TODO 待删除, 在客户端调整后
+message DominationRewardInfoAck {
+    repeated Domination DominationReward = 1; // 奖励结构
+}
+
+// 回复活动『魔影入侵』生成Boss信息数据给客户端
+message GenerateBossAck{
+    required BossTroop Info = 1; // Boss军队 ID
+}
+
+// 获取大乱斗的恶魔刷新时间
+message GetMonsterRefreshAtAck {
+	required int64 RefreshAt = 1; // 时间戳
+}
+
+message ChangeAvatarAck {
+}
+
+message RecruitMaxAck {
+	required CommonReward Cost      = 1;
+	required Resources    Resources = 2;
+	required Currency     Currency  = 3;
+}
+
+message RecruitAllAck {
+	required bool         NotEnoughResource = 1;
+	required CommonReward Cost              = 2;
+	required Resources    Resources         = 3;
+	required Currency     Currency          = 4;
+}
+
+message CancelRecruitAck {
+	required CommonReward Cost      = 1;
+	required Resources    Resources = 2;
+	required Currency     Currency  = 3;
+}
+
+message GetBornPointsAck {
+	message Status {
+		required int32 MapSN     = 1;
+		required int32 LeftCount = 2;
+	}
+	repeated Status Statuses = 1;
+}
+
+// 每日智能礼包信息
+message GetDailyShopAck {
+	optional Hero     Hero       = 1;
+	optional Currency Currency   = 2;
+}
+
+message ExchangeTroopHeroAck {
+	repeated Troop Troops = 1;
+}
+
+message GetDailyLimitExpiredAck {
+	required int64 ExpiredAt = 1;
+}
+
+message GetAllyCoordsAck {
+	repeated Coord Coords = 1;
+}
+
+message GetAllAlliancePointsAck {
+	repeated AllianceOwnedPoint Points = 1;
+}
+
+message RechargeRewardInfoAck {
+	required int32 PlayerRewardLevel = 1;
+	required float PlayerRechargeAmount = 2;
+}
+
+message GetRechargeRewardAck {
+	required Resources     Resources = 1;
+	required Currency      Currency  = 2;
+	required CommonReward  Reward    = 3;
+	repeated LotteryResult LotteryResults = 4;
+}

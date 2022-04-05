@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv_listen_voice_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="false"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/view_main_title"
+        android:layout_marginTop="-2.5dp"
+        android:background="@drawable/background">
+
+        <include layout="@layout/view_listen_voice_userinfo"></include>
+
+        <include layout="@layout/view_listen_voice_signature"></include>
+
+        <LinearLayout
+            android:id="@+id/chat_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:layout_below="@+id/rl_listen_voice_layout3"
+            android:fitsSystemWindows="true"
+            android:clipToPadding="false"
+            android:orientation="vertical">
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/srl_listen_voice_message_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="visible"
+                android:layout_above="@+id/rl_listen_voice_layout_bottom"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/chat_background"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_listen_voice_message_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:scrollbars="vertical"
+                    android:transcriptMode="normal" />
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+            <include layout="@layout/view_listen_voice_input"></include>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/rl_listen_voice_layout_bottom"
+            android:layout_below="@+id/rl_listen_voice_layout3"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <com.lyvoice.tool.sendGift.GiftFrameLayout
+                android:id="@+id/gift_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"></com.lyvoice.tool.sendGift.GiftFrameLayout>
+
+            <com.lyvoice.tool.sendGift.GiftFrameLayout
+                android:id="@+id/gift_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="invisible"></com.lyvoice.tool.sendGift.GiftFrameLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <include layout="@layout/view_title_listen_voice"></include>
+
+</RelativeLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_anchor_title">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_anchor_title"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="模拟游戏界面"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <FrameLayout
+            android:id="@+id/fl_living"
+            android:layout_width="46dp"
+            android:layout_marginTop="20dp"
+            android:layout_above="@+id/rl_linevoice_footer_startLinevoice"
+            android:visibility="visible"
+            android:layout_height="46dp">
+
+            <ImageView
+                android:id="@+id/iv_living_status"
+                android:layout_width="45dp"
+                android:layout_gravity="center"
+                android:layout_height="45dp" />
+
+            <com.lyvoice.widget.CircleImageView
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:src="@drawable/img_border_circle" />
+
+            <com.lyvoice.widget.musicWaveView.SLoadingIndicatorView
+                android:layout_width="20dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="2dp"
+                app:s_indicator="LineScalePulseOutWave" />
+
+        </FrameLayout>
+
+        <Spinner
+            android:id="@+id/spinner_language"
+            android:layout_marginTop="20dp"
+            android:layout_width="180dp"
+            android:layout_height="50dp"></Spinner>
+
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:text="切换账号" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/game_menu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/game_pop_btn1_text"
+        android:gravity="center"
+        android:text="模拟游戏菜单栏"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>

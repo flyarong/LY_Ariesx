@@ -1,0 +1,537 @@
+syntax = "proto2";
+package protocol;
+
+import "types.proto";
+import "models.proto";
+
+message Player {
+	// basic info
+	required string Id              = 1;
+	required string Name            = 2;
+	required int32  Avatar          = 14;
+	required string Desc            = 3;
+	required string Udid            = 4;
+	required int32  Force           = 5;
+	required int32  FinishChapter   = 6;
+	required int64  CreatedAt       = 7;
+	required int32  MapSN           = 8;
+	required bool   HadChangeName   = 9;
+	required int32  ExtraBuildQueue = 11;
+	required int32  MaxFteStep      = 13;
+
+	required Currency Currency = 10;
+
+	required string CustomerToken = 20;
+}
+
+message Point {
+	message Troop {
+		required string PlayerId     = 1;
+		required int32  PlayerAvatar = 2;
+		required string AllianceId   = 3;
+	}
+
+	required Coord  Coord                   = 1;
+	required int32  ZoneSN                  = 2;
+	required int32  MapSN                   = 3;
+	required string ElementId               = 4;
+	required int32  ElementType             = 5;
+
+	required int32  Durability              = 10;
+	required int32  MaxDurability           = 101;
+	required int64  DurabilityRefreshAt     = 11;
+	required int64  AvoidExpireAt           = 12;
+	required int64  FreshProtectionExpireAt = 13;
+	required int64  NpcTroopRefreshAt       = 14;
+
+	required string       PlayerId            = 20;
+	required string       PlayerName          = 21;
+	required string       AllianceId          = 22;
+	required string       BelongsAllianceId   = 24;
+	required string       BelongsAllianceName = 25;
+	repeated Troop        Troops              = 26;
+
+	optional ElementResource Resource = 30;
+	optional ElementNpcCity  NpcCity  = 31;
+	optional ElementCamp     Camp     = 32;
+	optional ElementPass     Pass     = 33;
+	optional ElementBuilding Building = 34;
+}
+
+message Block {
+	required string     Offset       = 1;
+	repeated Point      Points       = 2;
+}
+
+message Monster {
+	required Coord      Coord = 1;
+	required int32      Level = 2;
+}
+
+message Boss {
+    required Coord      Coord = 1;
+    required int32      Level = 2;
+}
+
+message MonsterBlock {
+	required string     Offset       = 1;
+	repeated Monster    Monsters     = 2;
+}
+
+message BossBlock {
+	required string     Offset       = 1;
+	repeated Boss       Bosses       = 2;
+}
+
+message HeroPosition {
+	required string Name     = 1;
+	required int32  Position = 2;
+}
+
+message NpcTroop {
+	repeated HeroPosition Positions = 1;
+	repeated NpcHero      Heroes    = 2;
+}
+
+message IntegralReward {
+    required int32  Integral     = 1;
+	required CommonReward Reward = 2;
+}
+
+message AllianceReward {
+	required CommonReward Reward = 1;
+}
+
+message LastBloodReward {
+    required CommonReward Reward = 1;
+}
+
+message RankReward {
+	required int32  Min          = 1;
+	required int32  Max          = 2;
+	required CommonReward Reward = 3;
+}
+
+message Message {
+	required string Language = 1;
+	required string Subject = 2;
+	required string Body = 3;
+}
+
+message Base {
+	required string       Id = 1;
+	required string       Type = 2;
+	required string       Banner = 3;
+	required int64        PrepareTime = 4;
+	required int64        StartTime = 5;
+	required int64        EndTime = 6;
+	repeated Message      ActivityInfo = 7;
+	required string       SpecialType    = 8;
+}
+
+message Melee {
+	repeated IntegralReward IntegralReward = 1;
+	repeated RankReward     RankReward     = 2;
+}
+
+message Occupy {
+	repeated IntegralReward IntegralReward = 1;
+	repeated RankReward     RankReward     = 2;
+}
+
+message Capture {
+	repeated IntegralReward IntegralReward = 1;
+	repeated RankReward     RankReward     = 2;
+}
+
+message DominationList {
+    repeated Domination Rewards = 1;
+}
+
+message Domination {
+    required int32           Level           = 1;
+    optional LastBloodReward LastBloodReward = 2;
+    optional AllianceReward  AllianceReward  = 3;
+    repeated RankReward      RankRewared     = 4;
+}
+
+message DominationInfo {
+    required string DominationId = 1;
+    required Coord  Coord        = 2;
+    required int32  Level        = 3;
+    required int32  Power        = 4;
+    required int32  Hp           = 5;
+    required int32  CurrentHp    = 6;
+    required int64  ExistTime    = 7;
+}
+
+message DominationHistory {
+    required string DominationId = 1;
+    required string AllianceId   = 2;
+    required Coord  Coord        = 3;
+    required int32  Level        = 4;
+    required int32  Power        = 5;
+    required int32  HP           = 6;
+    required int32  CurrentHP    = 7;
+    required int32  Status       = 8;
+    optional int64  EndTime      = 9;
+}
+
+message CapturePersonalPoints {
+	required string Id = 1;
+	required int32  Points = 2;
+}
+
+message Activity {
+	required Base       Base       = 1;
+	optional Melee      Melee      = 2;
+	optional Occupy     Occupy     = 3;
+	optional Capture    Capture    = 4;
+	repeated Domination Domination = 5;
+}
+
+message BossTroop {
+    required string       Id          = 1;
+    required string       ActivityId  = 2;
+    required Coord        Coord       = 3;
+    required int64        ExistTime   = 4;
+    required int32        Level       = 5;
+    repeated HeroPosition Positions   = 6;
+    repeated NpcHero      Heroes    = 7;
+}
+
+message MonsterTroop {
+	required string       Id          = 1;
+	required string       ActivityId  = 2;
+	required Coord        Coord       = 3;
+	required int64        ProtectAt   = 4;
+	required int32        Level       = 5;
+	repeated HeroPosition Positions   = 6;
+	repeated NpcHero      Heroes      = 7;
+}
+
+message Troop {
+	required string       Id        = 1;
+	required string       ArmyCamp  = 2;
+	required Coord        Coord     = 3;
+	required bool         Idle      = 4;
+	required bool         Marched   = 5;
+	required int64        ArrivedAt = 7;
+	repeated HeroPosition Positions = 6;
+}
+
+message EventMarch {
+	required string Id           = 1;
+	required string PlayerId     = 2;
+	required string PlayerName   = 3;
+	required string AllianceId   = 4;
+	required string AllianceName = 5;
+	required int64  StartAt      = 6;
+	required int64  FinishAt     = 7;
+
+	required string TroopId = 10;
+	required int32  Type    = 11;
+	required Coord  Origin  = 12;
+	required Coord  Target  = 13;
+	required Troop  Troop   = 14;
+}
+
+message EventRecruit {
+	required string Id           = 1;
+	required string PlayerId     = 2;
+	required string PlayerName   = 3;
+	required string AllianceId   = 4;
+	required string AllianceName = 5;
+	required int64  StartAt      = 6;
+	required int64  FinishAt     = 7;
+
+	required string TroopId  = 10;
+	required string HeroName = 11;
+	required int32  Amount   = 12;
+
+	required Resources CostedResources = 20;
+	required Currency  CostedCurrency  = 21;
+}
+
+message EventAbdication {
+	required string Id          = 1;
+	required string AllianceId  = 2;
+	required string InheritorId = 3;
+	required int64  StartAt     = 4;
+	required int64  FinishAt    = 5;
+}
+
+message EventAbandon {
+	required string Id           = 1;
+	required string PlayerId     = 2;
+	required string PlayerName   = 3;
+	required string AllianceId   = 4;
+	required string AllianceName = 5;
+	required int64  StartAt      = 6;
+	required int64  FinishAt     = 7;
+
+	required Coord Coord = 10;
+}
+
+message EventGiveUp {
+	required string Id           = 1;
+	required string PlayerId     = 2;
+	required string PlayerName   = 3;
+	required string AllianceId   = 4;
+	required string AllianceName = 5;
+	required int64  StartAt      = 6;
+	required int64  FinishAt     = 7;
+
+	required string BuildingName = 10;
+	required Coord  Coord        = 11;
+}
+
+message EventBuild {
+	required string Id           = 1;
+	required string PlayerId     = 2;
+	required string PlayerName   = 3;
+	required string AllianceId   = 4;
+	required string AllianceName = 5;
+	required int64  StartAt      = 6;
+	required int64  FinishAt     = 7;
+
+	required string BuildingName = 10;
+	required int32  Type         = 11;
+	required Coord  Coord        = 12;
+}
+
+message EventDissolve {
+	required string Id           = 1;
+	required string AllianceId   = 2;
+	required int64  StartAt      = 3;
+	required int64  FinishAt     = 4;
+}
+
+message LotteryResult {
+	required string     Name          = 1;
+	required int32      FragmentCount = 2;
+	repeated Skill      Skills        = 3;
+}
+
+message ChatMessage {
+	required string Id           = 1;
+	required string PlayerId     = 2;
+	required string PlayerName   = 3;
+	required string AllianceName = 4;
+	required string Content      = 5;
+	required int64  Timestamp    = 6;
+	required string Template     = 7;
+	repeated string Params       = 8;
+	required int32  MapSN        = 9;
+	required int32  Avatar       = 10;
+}
+
+message ChatRoom {
+	repeated ChatMessage Messages = 1;
+}
+
+message RankDomination {
+    required string Id           = 1;
+    required string Name         = 2;
+    required int32  Rank         = 3;
+    required int32  Points       = 4;
+}
+
+message RankMelee {
+    required string Id           = 1;
+	required string Name         = 2;
+	required int32  Rank         = 3;
+	required int32  Points       = 4;
+}
+
+message RankCapture {
+    required string  Id     = 1;
+	required string  Name   = 2;
+	required int32   Rank   = 3;
+	required int32   Points = 4;
+	required int32   Emblem = 5;
+	required int32   MapSn  = 6;
+}
+
+message RankOccupy {
+    required string  Id      = 1;
+	required string  Name   = 2;
+	required int32   Rank   = 3;
+	required int32   Points = 4;
+}
+
+message OccupySelf {
+	required int32 Points = 1;
+}
+
+message CaptureLog {
+	required string    Id        = 1;
+	required int32     Delta     = 2;
+	required int32     Total     = 3;
+	required int64     CreatedAt = 4;
+	required PointInfo PointInfo = 5;
+}
+
+message OccupyLog {
+	required string    Id        = 1;
+	required int32     Delta     = 2;
+	required int32     Total     = 3;
+	required int64     CreatedAt = 4;
+	required PointInfo PointInfo = 5;
+}
+
+message RankPlayer {
+	required string Id           = 1;
+	required string Name         = 2;
+	required string AllianceName = 3;
+	required int32  Rank         = 4;
+	required int32  RankBefore   = 5;
+	required int32  Force        = 6;
+	required int32  PointCount   = 7;
+	required int32  MapSN        = 8;
+	required int32  Avatar       = 9;
+}
+
+message RankAlliance {
+	required string Id                   = 9;
+	required string Name                 = 1;
+	required int32  MapSN                = 2;
+	required int32  Exp                  = 3;
+	required int32  Level                = 4;
+	required int32  Rank                 = 5;
+	required int32  RankBefore           = 6;
+	required int32  MemberCount          = 7;
+	required int32  MaxMemberCount       = 8;
+	required int32  Emblem               = 10;
+	required int32  OccupationCount      = 11;
+	required int32  OccupationPoints     = 12;
+	required int32  OccupationRank       = 13;
+	required int32  OccupationRankBefore = 14;
+}
+
+message Alliance {
+	message ElderKickCD {
+		required string Id        = 1;
+		required int64  Timestamp = 2;
+	}
+
+	required string Id          = 1;
+	required string Name        = 2;
+	required string Description = 3;
+	required int32  MapSN       = 4;
+	required int32  Emblem      = 5;
+	required int32  Language    = 6;
+	required int32  Exp         = 7;
+	required int32  MemberCount = 8;
+
+	repeated ElderKickCD ElderKickCDs = 10;
+
+	required JoinCondition   JoinCondition   = 20;
+	optional EventDissolve   EventDissolve   = 21;
+	optional EventAbdication EventAbdication = 22;
+}
+
+message AllianceCache {
+	required string Id             = 1;
+	required string Name           = 2;
+	required int32  Emblem         = 3;
+	required int32  Level          = 4;
+	required int32  Exp            = 5;
+	required int32  MapSN          = 6;
+	required Coord  Coord          = 7;
+	required int32  MemberCount    = 8;
+	required int32  MaxMemberCount = 9;
+	required int32  Language       = 10;
+}
+
+message AllianceMember {
+	required string Id          = 1;
+	required string Name        = 2;
+	required int32  Role        = 3;
+	required int32  AllianceExp = 4;
+	required int32  Force       = 5;
+	required bool   IsFallen    = 6;
+	required int32  Avatar      = 7;
+}
+
+message PlayerPublicInfo {
+	required string Id             = 1;
+	required string Name           = 2;
+	required string Desc           = 3;
+	required int32  Force          = 4;
+	required string FallenBy       = 5;
+	required string AllianceName   = 6;
+	required int32  AllianceRole   = 7;
+	required int32  AllianceEmblem = 8;
+	required int32  Avatar         = 9;
+}
+
+message AllianceMessageChat {
+	required string PlayerId    = 1;
+	required string PlayerName  = 2;
+	required int32  PlayerMapSN = 3;
+	required string Content     = 4;
+	required int32  Avatar      = 5;
+}
+
+message AllianceMessageInfo {
+	required string Template = 1;
+	repeated string Args     = 2;
+}
+
+message AllianceMessageJoinRequest {
+	required string PlayerId     = 1;
+	required string PlayerName   = 2;
+	required string Message      = 3;
+	required string OperatorName = 4;
+	required bool   Processed    = 5;
+	required bool   IsApproval   = 6;
+}
+
+message AllianceMessage {
+	required string Id          = 1;
+	required int64  Timestamp   = 2;
+
+	optional AllianceMessageChat        Chat        = 3;
+	optional AllianceMessageInfo        Info        = 4;
+	optional AllianceMessageJoinRequest JoinRequest = 5;
+	optional AllianceMessageInfo        SlaveInfo        = 6;
+}
+
+message FallenPlayer {
+	required string Id           = 1;
+	required string Name         = 2;
+	required string AllianceName = 3;
+	required int32  MapSN        = 4;
+	required int32  Force        = 5;
+	required Coord  Coord        = 6;
+	required int32  Avatar       = 7; 
+}
+
+message FallenInfo {
+	required string Index        = 1;
+	required string AllianceId   = 2;
+	required string AllianceName = 3;
+}
+
+message OrderInfo {
+    required string        OrderId     = 1;
+    required string        ProductId   = 2;
+    required Resources     Resources   = 3;
+    required Currency      Currency    = 4;
+    optional Chest         Chests      = 5;
+    optional CommonReward  Reward      = 6;
+}
+
+message Formation {
+	required string Id = 1;
+	required string TroopId = 2;
+	required int32  Position = 3;
+}
+
+message AllianceBasicInfo {
+	required string Id     = 1;
+	required int32  Emblem = 2;
+	required string Name   = 3;
+	required bool   Delete = 10;
+}

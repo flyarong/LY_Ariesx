@@ -1,0 +1,12 @@
+syntax = "proto2";
+package protocol;
+
+message Error {
+	required int32  Code    = 1;
+	required string Message = 2;
+}
+
+message BattleReports {
+	repeated bytes Summaries = 1;
+	repeated bytes Rounds    = 2;
+}

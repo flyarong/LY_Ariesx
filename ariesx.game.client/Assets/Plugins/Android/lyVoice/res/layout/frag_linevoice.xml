@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_linevoice_main"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/view_title_listen_voice"
+        android:visibility="gone"
+        ></include>
+
+    <include layout="@layout/view_search"></include>
+
+    <include layout="@layout/view_main_collect"></include>
+
+    <ImageView
+        android:id="@+id/iv_linevoice_line"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="7dp"
+        android:background="@color/main_listview_line"
+        android:layout_below="@+id/rl_linevoice_head"
+        android:layout_height="1dp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_linevoice_title"
+        android:layout_width="match_parent"
+        android:gravity="bottom"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_linevoice_line">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ll_linevoice_select_language"
+            android:layout_marginLeft="10dp"
+            android:text="@string/main_anchor_title"
+            android:textColor="@color/main_anchor_title"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_linevoice_select_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:paddingTop="5dp">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ilong_chat_ball_language" />
+
+            <TextView
+                android:id="@+id/tv_linevoice_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/main_language"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_linevoice_anchor"
+        android:layout_width="match_parent"
+        android:layout_marginTop="6.5dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_above="@+id/rl_linevoice_footer_startLinevoice"
+        android:layout_below="@+id/rl_linevoice_title">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lv_linevoice_anchor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:transcriptMode="normal" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_linevoice_footer_startLinevoice"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/create_linevoice"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:visibility="visible">
+
+        <com.lyvoice.widget.StrokeTextView
+            android:id="@+id/strokeview_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:typeface="serif"
+            android:textStyle="bold"
+            android:textColor="@color/create_linevoice_tv"
+            android:text="@string/anchor_footer_startvoice"
+            />
+
+    </RelativeLayout>
+
+    <include layout="@layout/view_no_anchor"></include>
+    <include layout="@layout/view_no_net"></include>
+    <include layout="@layout/view_load_error"></include>
+    
+    
+    <FrameLayout
+        android:id="@+id/fl_living"
+        android:layout_width="46dp"
+        android:layout_above="@+id/rl_linevoice_footer_startLinevoice"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"
+        android:layout_height="46dp">
+
+        <com.lyvoice.widget.CircleImageView
+            android:id="@+id/iv_living_status"
+            android:layout_width="45dp"
+            android:layout_gravity="center"
+            android:layout_height="45dp" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/ilong_chat_circle_img" />
+
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:src="@drawable/img_border_circle" />
+
+        <com.lyvoice.widget.musicWaveView.SLoadingIndicatorView
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="2dp"
+            app:s_indicator="LineScalePulseOutWave" />
+
+        <ImageView
+            android:id="@+id/iv_living_vip"
+            android:visibility="gone"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_gravity="right|bottom"
+            android:src="@drawable/vip_logo"
+            />
+
+    </FrameLayout>
+
+
+    <ImageView
+        android:id="@+id/tab3"
+        android:layout_width="wrap_content"
+        android:layout_height="2.5dp"
+        android:background="@drawable/tab3"
+        />
+
+</RelativeLayout>
